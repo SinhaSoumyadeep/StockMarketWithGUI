@@ -113,6 +113,8 @@ public class IntroJFrame extends JFrame implements InvestmentViewInterface {
                     .addGap(0, 510, Short.MAX_VALUE)
     );
 
+
+
     jSplitPane1.setRightComponent(jPanel2);
 
     GroupLayout layout = new GroupLayout(getContentPane());
@@ -449,11 +451,14 @@ public class IntroJFrame extends JFrame implements InvestmentViewInterface {
     exitBtn.addActionListener(l -> {
       ExitJPanel exit = new ExitJPanel();
       jSplitPane1.setRightComponent(exit);
+      exit.delegateActions(f);
 
     });
     oneTimeInvestmentBtn.addActionListener(l -> {
       InvestFixedAmount invest = new InvestFixedAmount(this.portfollioList);
-      jSplitPane1.setRightComponent(invest);
+      JScrollPane pane = new JScrollPane(invest);
+      jSplitPane1.setRightComponent(pane);
+      invest.delegateActions(f);
 
     });
     plotGraphBtn.addActionListener(l -> {
@@ -463,7 +468,8 @@ public class IntroJFrame extends JFrame implements InvestmentViewInterface {
     });
     strategyBtn.addActionListener(l -> {
       DollarCostStrategyJPanel dc = new DollarCostStrategyJPanel(this.portfollioList);
-      jSplitPane1.setRightComponent(dc);
+      JScrollPane pane = new JScrollPane(dc);
+      jSplitPane1.setRightComponent(pane);
 
     });
     viewPortfolioIntroBtn.addActionListener(l -> {
@@ -480,6 +486,7 @@ public class IntroJFrame extends JFrame implements InvestmentViewInterface {
     portfollioList = listOfportfolio;
   }
 
+  @Override
   public void displayMessage(String title,String message)
   {
     JOptionPane.showMessageDialog(null, message, "InfoBox: " + title, JOptionPane.INFORMATION_MESSAGE);

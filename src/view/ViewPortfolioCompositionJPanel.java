@@ -109,11 +109,7 @@ public class ViewPortfolioCompositionJPanel extends JPanel {
   }
 
 
-  public void displayStatement(StringBuffer statement) {
-    // viewPortfolioJTextArea.setEditable(true);
-    viewPortfolioJTextArea.setText(statement.toString());
-    // viewPortfolioJTextArea.setEditable(false);
-  }
+
 
   public void delegateActions(Features f) {
     viewPortfolioCompositionBtn.addActionListener(l -> {

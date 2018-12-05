@@ -1,189 +1,204 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package view;
 
 import java.util.List;
 
-/**
- *
- * @author Sumeet Parekh
- */
-public class DollarCostStrategyJPanel extends javax.swing.JPanel {
-
-    private javax.swing.JLabel StrategyHomeJLabel;
-    private javax.swing.JButton assignIndividualWeightsBtn;
-    private javax.swing.JLabel enterCommissionInStrategyJLabel;
-    private javax.swing.JTextField enterCommissionInStrategyJTextField;
-    private javax.swing.JLabel enterEndDateInStrategyJLabel1;
-    private javax.swing.JTextField enterEndDateInStrategyJTextField1;
-    private javax.swing.JLabel enterFixedAmountJLabel;
-    private javax.swing.JTextField enterFixedAmountJTextField;
-    private javax.swing.JLabel enterFrequencyJLabel1;
-    private javax.swing.JTextField enterFrequencyJTextField1;
-    private javax.swing.JLabel enterPortfolioNameStrategyJLabel;
-    private javax.swing.JLabel enterStartDateInStrategyJLabel;
-    private javax.swing.JTextField enterStartDateInStrategyJTextField;
-    private javax.swing.JLabel enterWeightsFormatJLabel;
-    private javax.swing.JLabel enterWeightsJLabel;
-    private javax.swing.JTextField enterWeightsJTextField;
-    private javax.swing.JComboBox<String> portfolioNameInStrategyJCombo;
-    private List<String> portfollioList;
+import javax.swing.*;
 
 
-    /**
-     * Creates new form DollarCostStrategyJPanel
-     */
-    public DollarCostStrategyJPanel(List<String> portfollioList) {
-        this.portfollioList = portfollioList;
-        initComponents();
-    }
+public class DollarCostStrategyJPanel extends JPanel {
 
 
-    private void initComponents() {
+  private JLabel StrategyHomeJLabel;
+  private JButton assignIndividualWeightsBtn;
+  private JLabel currentStocksJLabel;
+  private JTextArea currentStocksJTextArea;
+  private JLabel enterCommissionInStrategyJLabel;
+  private JTextField enterCommissionInStrategyJTextField;
+  private JLabel enterEndDateInStrategyJLabel1;
+  private JTextField enterEndDateInStrategyJTextField1;
+  private JLabel enterFixedAmountJLabel;
+  private JTextField enterFixedAmountJTextField;
+  private JLabel enterFrequencyJLabel1;
+  private JTextField enterFrequencyJTextField1;
+  private JLabel enterPortfolioNameStrategyJLabel;
+  private JLabel enterStartDateInStrategyJLabel;
+  private JTextField enterStartDateInStrategyJTextField;
+  private JLabel enterWeightsFormatJLabel;
+  private JLabel enterWeightsJLabel;
+  private JTextField enterWeightsJTextField;
+  private JScrollPane jScrollPane1;
+  private JComboBox<String> portfolioNameInStrategyJCombo;
+  private List<String> portfollioList;
 
-        enterStartDateInStrategyJLabel = new javax.swing.JLabel();
-        enterStartDateInStrategyJTextField = new javax.swing.JTextField();
-        portfolioNameInStrategyJCombo = new javax.swing.JComboBox<>();
-        enterCommissionInStrategyJLabel = new javax.swing.JLabel();
-        enterCommissionInStrategyJTextField = new javax.swing.JTextField();
-        StrategyHomeJLabel = new javax.swing.JLabel();
-        assignIndividualWeightsBtn = new javax.swing.JButton();
-        enterPortfolioNameStrategyJLabel = new javax.swing.JLabel();
-        enterWeightsJLabel = new javax.swing.JLabel();
-        enterFixedAmountJLabel = new javax.swing.JLabel();
-        enterWeightsFormatJLabel = new javax.swing.JLabel();
-        enterWeightsJTextField = new javax.swing.JTextField();
-        enterFixedAmountJTextField = new javax.swing.JTextField();
-        enterEndDateInStrategyJLabel1 = new javax.swing.JLabel();
-        enterEndDateInStrategyJTextField1 = new javax.swing.JTextField();
-        enterFrequencyJLabel1 = new javax.swing.JLabel();
-        enterFrequencyJTextField1 = new javax.swing.JTextField();
 
-        enterStartDateInStrategyJLabel.setText("Enter Start Date (Format: YYYY-MM-DD):-");
+  /**
+   * Creates new form DollarCostStrategyJPanel
+   */
+  public DollarCostStrategyJPanel(List<String> portfollioList) {
+    this.portfollioList = portfollioList;
+    initComponents();
+    currentStocksJTextArea.setEditable(false);
+  }
 
-        enterStartDateInStrategyJTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                enterStartDateInStrategyJTextFieldActionPerformed(evt);
-            }
-        });
 
-        portfolioNameInStrategyJCombo.setModel(new javax.swing.DefaultComboBoxModel<>(portfollioList.toArray(new String[0])));
+  private void initComponents() {
 
-        enterCommissionInStrategyJLabel.setText("Enter Commission:-");
+    enterStartDateInStrategyJLabel = new JLabel();
+    enterStartDateInStrategyJTextField = new JTextField();
+    portfolioNameInStrategyJCombo = new JComboBox<>();
+    enterCommissionInStrategyJLabel = new JLabel();
+    enterCommissionInStrategyJTextField = new JTextField();
+    StrategyHomeJLabel = new JLabel();
+    assignIndividualWeightsBtn = new JButton();
+    enterPortfolioNameStrategyJLabel = new JLabel();
+    enterWeightsJLabel = new JLabel();
+    enterFixedAmountJLabel = new JLabel();
+    enterWeightsFormatJLabel = new JLabel();
+    enterWeightsJTextField = new JTextField();
+    enterFixedAmountJTextField = new JTextField();
+    enterEndDateInStrategyJLabel1 = new JLabel();
+    enterEndDateInStrategyJTextField1 = new JTextField();
+    enterFrequencyJLabel1 = new JLabel();
+    enterFrequencyJTextField1 = new JTextField();
+    currentStocksJLabel = new JLabel();
+    jScrollPane1 = new JScrollPane();
+    currentStocksJTextArea = new JTextArea();
 
-        StrategyHomeJLabel.setText("Dollar Cost Averaging Strategy");
+    enterStartDateInStrategyJLabel.setText("Enter Start Date (Format: YYYY-MM-DD):-");
 
-        assignIndividualWeightsBtn.setText("Invest using Individual Weights");
-        assignIndividualWeightsBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                assignIndividualWeightsBtnActionPerformed(evt);
-            }
-        });
+    /*enterStartDateInStrategyJTextField.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        enterStartDateInStrategyJTextFieldActionPerformed(evt);
+      }
+    });*/
 
-        enterPortfolioNameStrategyJLabel.setText("Enter Portfolio to Invest Fixed Amount:-");
+    portfolioNameInStrategyJCombo.setModel(new DefaultComboBoxModel<>(portfollioList.toArray(new String[0])));
 
-        enterWeightsJLabel.setText("Enter Individual Weights");
+    enterCommissionInStrategyJLabel.setText("Enter Commission:-");
 
-        enterFixedAmountJLabel.setText("Enter Fixed Amount:-");
+    StrategyHomeJLabel.setText("Dollar Cost Averaging Strategy");
 
-        enterWeightsFormatJLabel.setText("Format: Stock1 Weight1,Stock2 Weight2... (Example: GOOG 50,TCS 40...)");
+    assignIndividualWeightsBtn.setText("Invest using Individual Weights");
+    /*assignIndividualWeightsBtn.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        assignIndividualWeightsBtnActionPerformed(evt);
+      }
+    });*/
 
-        enterEndDateInStrategyJLabel1.setText("Enter End Date (Format: YYYY-MM-DD):-");
+    enterPortfolioNameStrategyJLabel.setText("Enter Portfolio to Invest Fixed Amount:-");
 
-        enterEndDateInStrategyJTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                enterEndDateInStrategyJTextField1ActionPerformed(evt);
-            }
-        });
+    enterWeightsJLabel.setText("Enter Individual Weights");
 
-        enterFrequencyJLabel1.setText("Enter Frequency (in days):-");
+    enterFixedAmountJLabel.setText("Enter Fixed Amount:-");
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(enterWeightsJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(enterWeightsFormatJLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(enterWeightsJTextField)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(StrategyHomeJLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(enterPortfolioNameStrategyJLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(enterFixedAmountJLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(enterFixedAmountJTextField, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(enterStartDateInStrategyJLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(enterStartDateInStrategyJTextField, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(enterCommissionInStrategyJLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(enterCommissionInStrategyJTextField, javax.swing.GroupLayout.Alignment.LEADING)))
-                    .addComponent(assignIndividualWeightsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(portfolioNameInStrategyJCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(enterEndDateInStrategyJLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(enterEndDateInStrategyJTextField1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(enterFrequencyJLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
-                        .addComponent(enterFrequencyJTextField1, javax.swing.GroupLayout.Alignment.LEADING)))
-                .addContainerGap(317, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(StrategyHomeJLabel)
-                .addGap(18, 18, 18)
-                .addComponent(enterPortfolioNameStrategyJLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(portfolioNameInStrategyJCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(16, 16, 16)
-                .addComponent(enterFixedAmountJLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(enterFixedAmountJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(enterStartDateInStrategyJLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(enterStartDateInStrategyJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(enterEndDateInStrategyJLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(enterEndDateInStrategyJTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(enterFrequencyJLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(enterFrequencyJTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(enterCommissionInStrategyJLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(enterCommissionInStrategyJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(enterWeightsJLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(enterWeightsFormatJLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(enterWeightsJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(assignIndividualWeightsBtn)
-                .addContainerGap())
-        );
-    }// </editor-fold>//GEN-END:initComponents
+    enterWeightsFormatJLabel.setText("Format: Stock1 Weight1,Stock2 Weight2... (Example: GOOG 50,TCS 40...)");
 
-    private void enterStartDateInStrategyJTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterStartDateInStrategyJTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_enterStartDateInStrategyJTextFieldActionPerformed
+    enterEndDateInStrategyJLabel1.setText("Enter End Date (Format: YYYY-MM-DD):-");
 
-    private void assignIndividualWeightsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assignIndividualWeightsBtnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_assignIndividualWeightsBtnActionPerformed
+    /*enterEndDateInStrategyJTextField1.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        enterEndDateInStrategyJTextField1ActionPerformed(evt);
+      }
+    });*/
 
-    private void enterEndDateInStrategyJTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterEndDateInStrategyJTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_enterEndDateInStrategyJTextField1ActionPerformed
+    enterFrequencyJLabel1.setText("Enter Frequency (in days):-");
 
+    currentStocksJLabel.setText("Stocks present in Portfolio:-");
+
+    currentStocksJTextArea.setColumns(20);
+    currentStocksJTextArea.setRows(5);
+    jScrollPane1.setViewportView(currentStocksJTextArea);
+
+    GroupLayout layout = new GroupLayout(this);
+    this.setLayout(layout);
+    layout.setHorizontalGroup(
+            layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
+                                            .addGroup(layout.createSequentialGroup()
+                                                    .addComponent(jScrollPane1, GroupLayout.DEFAULT_SIZE, 550, Short.MAX_VALUE)
+                                                    .addGap(204, 204, 204))
+                                            .addComponent(enterWeightsFormatJLabel, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(enterWeightsJTextField)
+                                            .addComponent(StrategyHomeJLabel, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(enterPortfolioNameStrategyJLabel, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(enterFixedAmountJLabel, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(enterFixedAmountJTextField)
+                                            .addComponent(enterStartDateInStrategyJLabel, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(enterStartDateInStrategyJTextField)
+                                            .addComponent(enterCommissionInStrategyJLabel, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(enterCommissionInStrategyJTextField))
+                                    .addComponent(assignIndividualWeightsBtn, GroupLayout.PREFERRED_SIZE, 297, GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(portfolioNameInStrategyJCombo, GroupLayout.PREFERRED_SIZE, 295, GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createParallelGroup(GroupLayout.Alignment.TRAILING, false)
+                                            .addComponent(enterEndDateInStrategyJLabel1, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(enterEndDateInStrategyJTextField1, GroupLayout.Alignment.LEADING, GroupLayout.PREFERRED_SIZE, 300, GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createParallelGroup(GroupLayout.Alignment.TRAILING, false)
+                                            .addComponent(enterFrequencyJLabel1, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+                                            .addComponent(enterFrequencyJTextField1, GroupLayout.Alignment.LEADING))
+                                    .addComponent(currentStocksJLabel)
+                                    .addComponent(enterWeightsJLabel, GroupLayout.PREFERRED_SIZE, 198, GroupLayout.PREFERRED_SIZE))
+                            .addContainerGap(141, Short.MAX_VALUE))
+    );
+    layout.setVerticalGroup(
+            layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(StrategyHomeJLabel)
+                            .addGap(18, 18, 18)
+                            .addComponent(enterPortfolioNameStrategyJLabel)
+                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(portfolioNameInStrategyJCombo, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                            .addGap(16, 16, 16)
+                            .addComponent(enterFixedAmountJLabel)
+                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(enterFixedAmountJTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(enterStartDateInStrategyJLabel)
+                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(enterStartDateInStrategyJTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(enterEndDateInStrategyJLabel1)
+                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(enterEndDateInStrategyJTextField1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(enterFrequencyJLabel1)
+                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(enterFrequencyJTextField1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(enterCommissionInStrategyJLabel)
+                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(enterCommissionInStrategyJTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(currentStocksJLabel)
+                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                            .addComponent(jScrollPane1, GroupLayout.PREFERRED_SIZE, 136, GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(enterWeightsJLabel)
+                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(enterWeightsFormatJLabel)
+                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(enterWeightsJTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(assignIndividualWeightsBtn)
+                            .addContainerGap())
+    );
+  }// </editor-fold>
+
+  private void enterStartDateInStrategyJTextFieldActionPerformed(java.awt.event.ActionEvent evt) {
+    // TODO add your handling code here:
+  }
+
+  private void assignIndividualWeightsBtnActionPerformed(java.awt.event.ActionEvent evt) {
+    // TODO add your handling code here:
+  }
+
+  private void enterEndDateInStrategyJTextField1ActionPerformed(java.awt.event.ActionEvent evt) {
+    // TODO add your handling code here:
+  }
 
 
 }
