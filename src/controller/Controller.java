@@ -22,12 +22,12 @@ import utility.DateUtility;
 import utility.Options;
 import view.InvestmentViewInterface;
 
-public class Controller implements Features {
+public class Controller implements Features, IStockMarketController {
   private InvestmentViewInterface view;
   private InvestModelInterfaceNew model;
 
 
-  public Controller(InvestModelInterfaceNew model)
+  public Controller(InvestModelInterfaceNew model, InvestmentViewInterface v)
   {
     try{
       this.model = retrieveData();
@@ -37,10 +37,19 @@ public class Controller implements Features {
       this.model = model;
     }
 
+    view = v;
+
   }
 
-  public void setView(InvestmentViewInterface v) {
-    view = v;
+  /**
+   * Start the stock market where the user of the application can buy stocks, create portfolio, view
+   * the composition of the portfolio. the user can quit the application at any point.
+   *
+   * @throws ParseException if the date comparision fails.
+   */
+  @Override
+  public void startStockMarket() throws ParseException {
+
     view.updatePortfolioOption(model.getPortfolioNames());
     view.setFeatures(this);
 
@@ -179,6 +188,9 @@ public class Controller implements Features {
     return weightsMap;
 
   }
+
+
+
 
 
 }

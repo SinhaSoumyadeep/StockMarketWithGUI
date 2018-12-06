@@ -49,9 +49,9 @@ public class Main {
     }*/
 
     InvestModelInterfaceNew im = new InvestmentModelNew();
-    InvestmentViewInterface v = new IntroJFrame();
-    Controller controller = new Controller(im);
-    controller.setView(v);
+    InvestmentViewInterface iv = new IntroJFrame();
+    Controller controller = new Controller(im, iv);
+
 
 
 

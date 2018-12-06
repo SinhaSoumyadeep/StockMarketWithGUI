@@ -11,7 +11,7 @@ import utility.Options;
 /**
  * This class is the view that will contain everything that is to be displayed by the application.
  */
-public class InvestmentView implements InvestmentViewInterface {
+public class InvestmentView implements InvestmentConsoleInterface {
 
   private Appendable view;
   private Readable read;
@@ -333,20 +333,9 @@ public class InvestmentView implements InvestmentViewInterface {
     view.append("\n The strategy will be ongoing\n");
   }
 
-  @Override
-  public void setFeatures(Features f) {
-
-  }
 
   @Override
-  public void updatePortfolioOption(List<String> listOfportfolio) {
-
+  public String guiInUse() {
+    return "console";
   }
-
-  @Override
-  public void displayMessage(String title, String message) {
-
-  }
-
-
 }
