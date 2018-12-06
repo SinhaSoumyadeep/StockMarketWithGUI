@@ -2,26 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5558d728-382a-426c-94de-388b9a46f331" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/StockMarketWithGUI_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/StockMarketWithGUI_jar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StockMarketWithGUI.iml" beforeDir="false" afterPath="$PROJECT_DIR$/StockMarketWithGUI.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/StockMarketWithGUI_jar/StockMarketWithGUI.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/StockMarketWithGUI_jar/StockMarketWithGUI.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/StockMarketWithGUI/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/StockMarketWithGUI/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/StockMarketWithGUI/controller/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/StockMarketWithGUI/controller/Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/StockMarketWithGUI/controller/ControllerFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/StockMarketWithGUI/controller/ControllerFactory.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/StockMarketWithGUI/utility/TypeOfUserInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/StockMarketWithGUI/utility/TypeOfUserInterface.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/StockMarketWithGUI/view/GraphJPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/StockMarketWithGUI/view/GraphJPanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/StockMarketWithGUI/view/IntroJFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/StockMarketWithGUI/view/IntroJFrame.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/StockMarketWithGUI/view/InvestmentGUIInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/StockMarketWithGUI/view/InvestmentGUIInterface.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/StockMarketWithGUI/view/ViewPortfolioCompositionJPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/StockMarketWithGUI/view/ViewPortfolioCompositionJPanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/ControllerFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/ControllerFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/Features.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/Features.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utility/TypeOfUserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utility/TypeOfUserInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/IntroJFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/IntroJFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/InvestmentGUIInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/InvestmentGUIInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/ViewPortfolioCompositionJPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/ViewPortfolioCompositionJPanel.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -43,27 +25,27 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="java" value="90" />
+          <entry key="java" value="91" />
           <entry key="json" value="1" />
           <entry key="properties" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="90" />
+          <entry key="JAVA" value="91" />
           <entry key="JSON" value="1" />
           <entry key="Properties" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="6108" />
+          <entry key="java" value="7363" />
           <entry key="properties" value="49" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="6108" />
+          <entry key="JAVA" value="7363" />
           <entry key="Properties" value="49" />
         </counts>
       </usages-collector>
@@ -86,12 +68,24 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/controller/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="362">
-              <caret line="200" column="26" selection-start-line="200" selection-start-column="26" selection-end-line="200" selection-end-column="26" />
+            <state relative-caret-position="226">
+              <caret line="228" column="1" lean-forward="true" selection-start-line="228" selection-start-column="1" selection-end-line="236" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#6515#6516#0" expanded="true" />
                 <element signature="e#6546#6547#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/controller/Features.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-797">
+              <caret line="27" column="44" lean-forward="true" selection-start-line="21" selection-start-column="5" selection-end-line="27" selection-end-column="44" />
+              <folding>
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -109,10 +103,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/view/IntroJFrame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="400">
+            <state relative-caret-position="482">
               <caret line="209" column="6" selection-start-line="209" selection-start-column="6" selection-end-line="209" selection-end-column="6" />
             </state>
           </provider>
@@ -123,18 +117,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="120">
               <caret line="32" column="25" lean-forward="true" selection-start-line="30" selection-start-column="80" selection-end-line="32" selection-end-column="25" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/controller/Features.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="1" selection-start-line="1" selection-end-line="1" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -197,11 +179,11 @@
         <option value="$PROJECT_DIR$/src/view/GraphJPanel.java" />
         <option value="$PROJECT_DIR$/src/Main.java" />
         <option value="$PROJECT_DIR$/src/utility/TypeOfUserInterface.java" />
-        <option value="$PROJECT_DIR$/src/controller/Features.java" />
         <option value="$PROJECT_DIR$/src/controller/ControllerFactory.java" />
         <option value="$PROJECT_DIR$/src/view/InvestmentGUIInterface.java" />
-        <option value="$PROJECT_DIR$/src/controller/Controller.java" />
         <option value="$PROJECT_DIR$/src/view/IntroJFrame.java" />
+        <option value="$PROJECT_DIR$/src/controller/Controller.java" />
+        <option value="$PROJECT_DIR$/src/controller/Features.java" />
       </list>
     </option>
   </component>
@@ -265,7 +247,7 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544120486467" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544121397744" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Artifacts" />
@@ -338,18 +320,18 @@
       <updated>1544036831360</updated>
       <workItem from="1544036856035" duration="11574000" />
       <workItem from="1544055435758" duration="8260000" />
-      <workItem from="1544067240900" duration="21622000" />
+      <workItem from="1544067240900" duration="22613000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="41456000" />
+    <option name="totallyTimeSpent" value="42447000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="725" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23828755" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23828755" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -359,7 +341,7 @@
       <window_info id="Learn" order="7" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.16587678" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3364929" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39968404" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -630,16 +612,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/controller/Features.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/controller/ControllerFactory.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="223">
@@ -664,15 +636,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/controller/Controller.java">
+    <entry file="file://$PROJECT_DIR$/src/view/InvestmentGUIInterface.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="362">
-          <caret line="200" column="26" selection-start-line="200" selection-start-column="26" selection-end-line="200" selection-end-column="26" />
+        <state relative-caret-position="165">
+          <caret line="11" column="24" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#6515#6516#0" expanded="true" />
-            <element signature="e#6546#6547#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/IntroJFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="482">
+          <caret line="209" column="6" selection-start-line="209" selection-start-column="6" selection-end-line="209" selection-end-column="6" />
         </state>
       </provider>
     </entry>
@@ -686,20 +663,25 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/InvestmentGUIInterface.java">
+    <entry file="file://$PROJECT_DIR$/src/controller/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="24" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
+        <state relative-caret-position="226">
+          <caret line="228" column="1" lean-forward="true" selection-start-line="228" selection-start-column="1" selection-end-line="236" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#6515#6516#0" expanded="true" />
+            <element signature="e#6546#6547#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/IntroJFrame.java">
+    <entry file="file://$PROJECT_DIR$/src/controller/Features.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="209" column="6" selection-start-line="209" selection-start-column="6" selection-end-line="209" selection-end-column="6" />
+        <state relative-caret-position="-797">
+          <caret line="27" column="44" lean-forward="true" selection-start-line="21" selection-start-column="5" selection-end-line="27" selection-end-column="44" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

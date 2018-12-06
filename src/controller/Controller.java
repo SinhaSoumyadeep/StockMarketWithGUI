@@ -66,6 +66,8 @@ public class Controller extends AbstractController implements Features {
   /**
    * This method helps to create a new portfolio for the user. this method takes in a portfolio name
    * an creates a new portfolio for the user.
+   *
+   * @param portfolioName the portfolio name.
    */
   @Override
   public void createPortfolio(String portfolioName) {
@@ -202,6 +204,19 @@ public class Controller extends AbstractController implements Features {
   }
 
 
+  /**
+   * This method is to implement the Dollar cost averging strategy on a portfolio. The method takes
+   * in teh portfolio name on which th estartegy is to be applied, the start date of the strategy ,
+   * end date of the strategy, the frequency of the strategy, commission fee and weights.
+   *
+   * @param portfolioName the portfolio name.
+   * @param fixedAmount   fixed amount to be invested.
+   * @param startDate     start date.
+   * @param endDate       end date.
+   * @param frequency     frequency of the strategy.
+   * @param commission    commission fee for each transaction.
+   * @param weights       the weights of each stocks.
+   */
   @Override
   public void implementStrategy(String portfolioName, String fixedAmount, String startDate, String endDate, String frequency, String commission, String weights) {
 
@@ -211,16 +226,28 @@ public class Controller extends AbstractController implements Features {
 
   }
 
+  /**
+   * This method is used to plot a graph of the total Valuation of the portfolio passed by the
+   * user.
+   *
+   * @param portfolioName the portfolio name for which the user wishes to plot the graph.
+   * @param startDate     the start date.
+   * @param endDate       the end date.
+   * @param frequency     the frequency.
+   */
   @Override
   public void plotGraph(String portfolioName, String startDate, String endDate, String frequency) {
     frequency = frequency.trim();
-    GraphPlotter chart = new GraphPlotter("Total Valueation of " + portfolioName);
+    GraphPlotter chart = new GraphPlotter("Total Valuation of " + portfolioName);
     chart.plotGraph(createDataset(portfolioName, startDate, endDate, Integer.parseInt(frequency)), portfolioName);
     chart.pack();
     RefineryUtilities.centerFrameOnScreen(chart);
     chart.setVisible(true);
   }
 
+  /**
+   * This method is to generate the data set for the graph plotting.
+   */
   private DefaultCategoryDataset createDataset(String portfolioName, String startDate, String endDate, Integer frequency) {
     DefaultCategoryDataset dataset = new DefaultCategoryDataset();
     DateUtility du = new DateUtility();
@@ -236,6 +263,13 @@ public class Controller extends AbstractController implements Features {
     return dataset;
   }
 
+  /**
+   * This method takes in the weights for the stocks in the portfolio as a string and returns a hash
+   * map which can be used by the program.
+   *
+   * @param weights the weights as a string
+   * @return the weights as a hash map.
+   */
   private HashMap<String, Double> weightsToWeightsHashMapConverter(String weights) {
     HashMap<String, Double> weightsMap = new HashMap<String, Double>();
     StringTokenizer token = new StringTokenizer(weights, ",");
