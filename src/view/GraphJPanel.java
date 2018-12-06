@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.swing.*;
 
+
 import controller.Features;
 
 public class GraphJPanel extends JPanel {

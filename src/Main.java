@@ -5,6 +5,7 @@ import controller.ControllerFactory;
 import controller.IStockMarketController;
 import model.InvestModelInterfaceNew;
 import model.InvestmentModelNew;
+import utility.TypeOfUserInterface;
 import view.InvestmentViewInterface;
 import view.ViewFactory;
 
@@ -23,17 +24,19 @@ public class Main {
 
     String option = args[0].toUpperCase();
 
-    InvestModelInterfaceNew im = new InvestmentModelNew();
-    InvestmentViewInterface iv = ViewFactory.generateViewFactory(option);
-    IStockMarketController controller = ControllerFactory.generateControllerFactory(option,iv,im);
-    try {
-      controller.startStockMarket();
-    } catch (ParseException e) {
-      e.printStackTrace();
+    if(option.equals(TypeOfUserInterface.GUI.name()) || option.equals(TypeOfUserInterface.CONSOLE.name())){
+      InvestModelInterfaceNew im = new InvestmentModelNew();
+      InvestmentViewInterface iv = ViewFactory.generateViewFactory(option);
+      IStockMarketController controller = ControllerFactory.generateControllerFactory(option,iv,im);
+      try {
+        controller.startStockMarket();
+      } catch (ParseException e) {
+        e.printStackTrace();
+      }
     }
-
-
-
+    else {
+      throw new IllegalArgumentException("Invalid Type of User Interface");
+    }
 
   }
 

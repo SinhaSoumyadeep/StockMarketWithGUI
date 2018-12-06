@@ -21,6 +21,7 @@ import model.DollarCostAverageStrategy;
 import model.InvestModelInterfaceNew;
 import model.InvestmentModelNew;
 import model.InvestmentStrategyInterface;
+import properties.PropertiesLoader;
 import transferable.PortfolioTransferable;
 import utility.DateUtility;
 import utility.Options;
@@ -28,10 +29,9 @@ import view.GraphPlotter;
 import view.InvestmentGUIInterface;
 import view.InvestmentViewInterface;
 
-public class Controller implements Features, IStockMarketController {
-  private InvestmentGUIInterface view;
-  private InvestModelInterfaceNew model;
+public class Controller extends AbstractController implements Features{
 
+  protected InvestmentGUIInterface view;
 
   public Controller(InvestModelInterfaceNew model, InvestmentViewInterface v)
   {
@@ -183,23 +183,6 @@ public class Controller implements Features, IStockMarketController {
     }
 
     return dataset;
-  }
-
-
-  private void saveData() throws IOException {
-    System.out.println("SAVING MODEL!!");
-    ObjectMapper objectMapper = new ObjectMapper();
-    objectMapper.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
-    objectMapper.writeValue(new File("savedFile/Eve.json"), model);
-  }
-
-  private InvestModelInterfaceNew retrieveData() throws IOException {
-    System.out.println("RETRIEVING MODEL!!");
-    ObjectMapper objectMapper = new ObjectMapper();
-    objectMapper.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
-    InvestModelInterfaceNew obj = objectMapper.readValue(new File("savedFile/Eve.json"),
-            InvestmentModelNew.class);
-    return obj;
   }
 
   private HashMap<String, Double> weightsToWeightsHashMapConverter(String weights){

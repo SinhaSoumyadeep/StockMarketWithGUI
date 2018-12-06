@@ -19,6 +19,7 @@ import commands.DollarCostAverageCommand;
 import commands.InvestFixedAmount;
 import model.InvestModelInterfaceNew;
 import model.InvestmentModelNew;
+import properties.PropertiesLoader;
 import test.Address;
 import test.person;
 import utility.Options;
@@ -55,11 +56,10 @@ import view.InvestmentViewInterface;
  * the  Appendable object Invalid Options plus any informative message about why the option was
  * invalid, and resume waiting for valid input.</p>
  */
-public class StockMarketController implements IStockMarketController {
+public class StockMarketController extends AbstractController {
 
   private Readable readable;
   private InvestmentConsoleInterface iv;
-  private InvestModelInterfaceNew im;
   private Scanner scan;
   private StringBuffer automate = new StringBuffer();
 
@@ -77,14 +77,13 @@ public class StockMarketController implements IStockMarketController {
     this.readable = readable;
     this.iv = (InvestmentConsoleInterface) iv;
     try {
-      this.im = retrieveData();
+      this.model = retrieveData();
     } catch (IOException e) {
       e.printStackTrace();
-      System.out.println("starting new instance\n");
-      this.im = im;
+      this.model = im;
     }
 
-    if (this.readable == null || this.iv == null || this.im == null) {
+    if (this.readable == null || this.iv == null || this.model == null) {
       throw new IllegalArgumentException("Readable or View or Model cannot be Null.");
 
     }
@@ -148,7 +147,7 @@ public class StockMarketController implements IStockMarketController {
       switch (userOption) {
         case 1:
           try {
-            new EvaluatePortfolio(im, iv, scan, Options.DETAILED_STATEMENT, automate).execute();
+            new EvaluatePortfolio(model, iv, scan, Options.DETAILED_STATEMENT, automate).execute();
           } catch (Exception e) {
             iv.printExceptions(e.getMessage());
             continue;
@@ -156,7 +155,7 @@ public class StockMarketController implements IStockMarketController {
           break;
         case 2:
           try {
-            new EvaluatePortfolio(im, iv, scan, Options.MINI_STATEMENT, automate).execute();
+            new EvaluatePortfolio(model, iv, scan, Options.MINI_STATEMENT, automate).execute();
           } catch (Exception e) {
             iv.printExceptions(e.getMessage());
             continue;
@@ -164,7 +163,7 @@ public class StockMarketController implements IStockMarketController {
           break;
         case 3:
           try {
-            new BuyStocks(im, iv, scan, automate).execute();
+            new BuyStocks(model, iv, scan, automate).execute();
             saveData();
           } catch (Exception e) {
             iv.printExceptions(e.getMessage());
@@ -173,7 +172,7 @@ public class StockMarketController implements IStockMarketController {
           break;
         case 4:
           try {
-            new CreatePortfolio(im, iv, scan, automate).execute();
+            new CreatePortfolio(model, iv, scan, automate).execute();
             saveData();
           } catch (Exception e) {
             iv.printExceptions(e.getMessage());
@@ -182,7 +181,7 @@ public class StockMarketController implements IStockMarketController {
           break;
         case 5:
           try {
-            new DollarCostAverageCommand(im, iv, scan, automate).execute();
+            new DollarCostAverageCommand(model, iv, scan, automate).execute();
             saveData();
           } catch (Exception e) {
             iv.printExceptions(e.getMessage());
@@ -192,7 +191,7 @@ public class StockMarketController implements IStockMarketController {
 
         case 6:
           try {
-            new InvestFixedAmount(im, iv, scan, automate).execute();
+            new InvestFixedAmount(model, iv, scan, automate).execute();
             saveData();
           } catch (Exception e) {
             iv.printExceptions(e.getMessage());
@@ -207,21 +206,5 @@ public class StockMarketController implements IStockMarketController {
     }
 
   }
-
-
-  public void saveData() throws IOException {
-    ObjectMapper objectMapper = new ObjectMapper();
-    objectMapper.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
-    objectMapper.writeValue(new File("savedFile/Adam.json"), im);
-  }
-
-  public InvestModelInterfaceNew retrieveData() throws IOException {
-    ObjectMapper objectMapper = new ObjectMapper();
-    objectMapper.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
-    InvestModelInterfaceNew obj = objectMapper.readValue(new File("savedFile/Adam.json"),
-            InvestmentModelNew.class);
-    return obj;
-  }
-
 
 }
