@@ -205,6 +205,13 @@ public class IntroJFrame extends JFrame implements InvestmentGUIInterface {
   }
 
   @Override
+  public void exitGracefully() {
+    if (isDisplayable()) {
+      dispose();
+    }
+  }
+
+  @Override
   public String guiInUse() {
     return "GUI";
   }

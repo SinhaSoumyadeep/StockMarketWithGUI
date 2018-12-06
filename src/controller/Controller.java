@@ -1,14 +1,10 @@
 package controller;
 
 
-import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import com.fasterxml.jackson.annotation.PropertyAccessor;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
 import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.ui.RefineryUtilities;
 
-import java.io.File;
+
 import java.io.IOException;
 import java.text.ParseException;
 import java.time.LocalDate;
@@ -19,27 +15,31 @@ import java.util.StringTokenizer;
 
 import model.DollarCostAverageStrategy;
 import model.InvestModelInterfaceNew;
-import model.InvestmentModelNew;
 import model.InvestmentStrategyInterface;
-import properties.PropertiesLoader;
 import transferable.PortfolioTransferable;
 import utility.DateUtility;
-import utility.Options;
 import view.GraphPlotter;
 import view.InvestmentGUIInterface;
 import view.InvestmentViewInterface;
 
-public class Controller extends AbstractController implements Features{
+/**
+ * This class is a concrete implementation of the AbstractController. This Class acts as a
+ * controller for the GUI based User interface.This method provides a method where a user can start
+ * the application and buy stocks, view composition of portfolios, create portfolios, invest fixed
+ * amount in stocks with weights distributed equally or set individually depending on the need of
+ * the user.This controller acts as a mediatr between the model and the view. A channel through
+ * which the model and the view interact with each other.This controller also allows the user to
+ * persist the transactions including high term strategies, portfolios and stock bought in a
+ * diskfile which is configurable in the configuration file of the application.
+ */
+public class Controller extends AbstractController implements Features {
 
   protected InvestmentGUIInterface view;
 
-  public Controller(InvestModelInterfaceNew model, InvestmentViewInterface v)
-  {
-    try{
+  public Controller(InvestModelInterfaceNew model, InvestmentViewInterface v) {
+    try {
       this.model = retrieveData();
-    }
-    catch (Exception e){
-      System.out.println("in catch: loading a new model!");
+    } catch (Exception e) {
       this.model = model;
     }
 
@@ -49,7 +49,9 @@ public class Controller extends AbstractController implements Features{
 
   /**
    * Start the stock market where the user of the application can buy stocks, create portfolio, view
-   * the composition of the portfolio. the user can quit the application at any point.
+   * the composition of the portfolio, The user can also choose to invest in various portfolio for a
+   * single time or register the portfolio for a high level strategy. the user can quit the
+   * application at any point.
    *
    * @throws ParseException if the date comparision fails.
    */
@@ -61,37 +63,55 @@ public class Controller extends AbstractController implements Features{
 
   }
 
-
+  /**
+   * This method helps to create a new portfolio for the user. this method takes in a portfolio name
+   * an creates a new portfolio for the user.
+   */
   @Override
   public void createPortfolio(String portfolioName) {
 
     model.createNewPortfolio(portfolioName);
     view.updatePortfolioOption(model.getPortfolioNames());
-    view.displayMessage("Success", "you successfully created portfolio: "+portfolioName);
+    view.displayMessage("Success", "you successfully created portfolio: " + portfolioName);
 
 
   }
 
+  /**
+   * This method takes in a ticker sybol, timestamp, number of shares, commission fee and portfolio
+   * name to buy the stock specified by the user.
+   *
+   * @param ticker         the ticker symbol.
+   * @param timeStamp      timestamp.
+   * @param numberOfShares number of shares.
+   * @param commission     commission fee.
+   * @param portfolioName  portfolio name.
+   */
   @Override
   public void buyStocks(String ticker, String timeStamp, String numberOfShares, String commission,
-                        String portfolioName){
+                        String portfolioName) {
     try {
-      model.buyStocks(ticker.trim(),timeStamp.trim(),Double.parseDouble(numberOfShares.trim()),portfolioName.trim(),commission.trim());
-      view.displayMessage("Success", "Thank you for buying : "+ticker);
-    }
-    catch (Exception e)
-    {
+      model.buyStocks(ticker.trim(), timeStamp.trim(), Double.parseDouble(numberOfShares.trim()), portfolioName.trim(), commission.trim());
+      view.displayMessage("Success", "Thank you for buying : " + ticker);
+    } catch (Exception e) {
       view.displayMessage("Error", e.getMessage());
     }
 
   }
 
+  /**
+   * This method takes in the portfolio ane and a timestamp and evaluates the stock on that date.
+   *
+   * @param portfolioName portfolio name.
+   * @param timeStamp     timestamp.
+   * @return PortfolioTransferable object that contains all the information for a portfolio.
+   */
   @Override
   public PortfolioTransferable viewDetailedStocks(String portfolioName, String timeStamp) {
 
     PortfolioTransferable p = null;
     try {
-      p = model.evaluatePortfolio(portfolioName,timeStamp);
+      p = model.evaluatePortfolio(portfolioName, timeStamp);
     } catch (Exception e) {
       view.displayMessage("Error", e.getMessage());
     }
@@ -99,29 +119,55 @@ public class Controller extends AbstractController implements Features{
     return p;
   }
 
+
+  /**
+   * This method invests a fixed amount in a particular portfolio which is specified by the user
+   * using fixed weights assigned to each stocks in the portfolio.
+   *
+   * @param portfolioName the portfolio name.
+   * @param fixedAmount   the fixed amount.
+   * @param timeStamp     timestamp.
+   * @param commission    commission fees.
+   */
   @Override
   public void investStocks(String portfolioName, String fixedAmount, String timeStamp, String commission) {
 
     try {
-      model.investStocks(portfolioName,Double.parseDouble(fixedAmount),timeStamp,commission);
+      model.investStocks(portfolioName, Double.parseDouble(fixedAmount), timeStamp, commission);
     } catch (ParseException e) {
       view.displayMessage("Error", e.getMessage());
     }
 
   }
 
+  /**
+   * This method invests a fixed amount in a particular portfolio which is specified by the user
+   * using custom weights assigned to each stocks by the user in the portfolio.
+   *
+   * @param portfolioName the portfolio name.
+   * @param fixedAmount   the fixed amount.
+   * @param weights       custom weights for each stocks.
+   * @param timeStamp     timestamp.
+   * @param commission    commission fees.
+   */
   @Override
   public void investStocks(String portfolioName, String fixedAmount, String weights, String timeStamp, String commission) {
 
     try {
-      model.investStocks(portfolioName,Double.parseDouble(fixedAmount),weightsToWeightsHashMapConverter(weights),timeStamp,commission);
+      model.investStocks(portfolioName, Double.parseDouble(fixedAmount), weightsToWeightsHashMapConverter(weights), timeStamp, commission);
     } catch (ParseException e) {
       view.displayMessage("Error", e.getMessage());
     }
   }
 
+  /**
+   * This is a method that gets the name of the stocks present in that portfolio.
+   *
+   * @param portfolioName the portfolio name.
+   * @return list of the stock names.
+   */
   @Override
-  public List<String> getStocksInPortfolio(String portfolioName){
+  public List<String> getStocksInPortfolio(String portfolioName) {
 
     List<String> display = new ArrayList<>();
     try {
@@ -134,6 +180,9 @@ public class Controller extends AbstractController implements Features{
 
   }
 
+  /**
+   * This method is used to save the data to the disk and terminate.
+   */
   @Override
   public void saveModel() {
     try {
@@ -144,63 +193,61 @@ public class Controller extends AbstractController implements Features{
     }
   }
 
+  /**
+   * This method is to terminate the program gracefully.
+   */
   @Override
   public void terminate() {
-    System.exit(0);
+    view.exitGracefully();
   }
-
 
 
   @Override
   public void implementStrategy(String portfolioName, String fixedAmount, String startDate, String endDate, String frequency, String commission, String weights) {
 
-      InvestmentStrategyInterface da = new DollarCostAverageStrategy(Double.parseDouble(fixedAmount),
-              startDate, endDate, Integer.parseInt(frequency), commission);
-      model.registerStrategy(da, portfolioName,weightsToWeightsHashMapConverter(weights));
+    InvestmentStrategyInterface da = new DollarCostAverageStrategy(Double.parseDouble(fixedAmount),
+            startDate, endDate, Integer.parseInt(frequency), commission);
+    model.registerStrategy(da, portfolioName, weightsToWeightsHashMapConverter(weights));
 
   }
 
   @Override
-  public void plotGraph(String portfolioName, String startDate, String endDate, String frequency )  {
+  public void plotGraph(String portfolioName, String startDate, String endDate, String frequency) {
     frequency = frequency.trim();
-    GraphPlotter chart = new GraphPlotter("Total Valueation of "+portfolioName );
-    chart.plotGraph(createDataset(portfolioName,startDate,endDate,Integer.parseInt(frequency)), portfolioName);
+    GraphPlotter chart = new GraphPlotter("Total Valueation of " + portfolioName);
+    chart.plotGraph(createDataset(portfolioName, startDate, endDate, Integer.parseInt(frequency)), portfolioName);
     chart.pack();
-    RefineryUtilities.centerFrameOnScreen( chart );
-    chart.setVisible( true );
+    RefineryUtilities.centerFrameOnScreen(chart);
+    chart.setVisible(true);
   }
 
-  private DefaultCategoryDataset createDataset(String portfolioName, String startDate, String endDate, Integer frequency ) {
-    DefaultCategoryDataset dataset = new DefaultCategoryDataset( );
+  private DefaultCategoryDataset createDataset(String portfolioName, String startDate, String endDate, Integer frequency) {
+    DefaultCategoryDataset dataset = new DefaultCategoryDataset();
     DateUtility du = new DateUtility();
     LocalDate sDate = du.stringToDateConverter(startDate);
     LocalDate eDate = du.stringToDateConverter(endDate);
     LocalDate next = sDate;
 
-    while(next.isEqual(eDate) || next.isBefore(eDate)){
-      dataset.addValue( model.evaluatePortfolio(portfolioName,next.toString()).getTotalValue() , "stockValue" , next.toString() );
+    while (next.isEqual(eDate) || next.isBefore(eDate)) {
+      dataset.addValue(model.evaluatePortfolio(portfolioName, next.toString()).getTotalValue(), "stockValue", next.toString());
       next = next.plusDays(frequency);
     }
 
     return dataset;
   }
 
-  private HashMap<String, Double> weightsToWeightsHashMapConverter(String weights){
-    HashMap<String,Double> weightsMap = new HashMap<String,Double>();
+  private HashMap<String, Double> weightsToWeightsHashMapConverter(String weights) {
+    HashMap<String, Double> weightsMap = new HashMap<String, Double>();
     StringTokenizer token = new StringTokenizer(weights, ",");
 
-    while (token.hasMoreTokens())
-    {
-      StringTokenizer token2 = new StringTokenizer(token.nextToken().toString().trim()," ");
-      weightsMap.put(token2.nextToken(),Double.parseDouble(token2.nextToken()));
+    while (token.hasMoreTokens()) {
+      StringTokenizer token2 = new StringTokenizer(token.nextToken().toString().trim(), " ");
+      weightsMap.put(token2.nextToken(), Double.parseDouble(token2.nextToken()));
     }
 
     return weightsMap;
 
   }
-
-
-
 
 
 }

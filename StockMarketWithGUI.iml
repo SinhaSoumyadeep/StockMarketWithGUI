@@ -48,7 +48,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/../../jars/jfreechart-1.0.19/lib/jcommon-1.0.23.jar!/" />
+          <root url="jar://$MODULE_DIR$/jar_files/jcommon-1.0.23.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -57,7 +57,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/../../jars/jfreechart-1.0.19/lib/jfreechart-1.0.19.jar!/" />
+          <root url="jar://$MODULE_DIR$/jar_files/jfreechart-1.0.19.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />

@@ -129,7 +129,7 @@ public class ViewPortfolioCompositionJPanel extends JPanel {
       statement.append("Total Investment:\t\t\t$" + pt.getTotalInvestment() + "\n");
       statement.append("Total Portfolio Valuation on " + pt.getTimeStamp() + ":\t\t$" + pt.getTotalValue() + "\n");
 
-      System.out.println(statement);
+
       viewPortfolioJTextArea.setText(statement.toString());
 
 
@@ -145,7 +145,7 @@ public class ViewPortfolioCompositionJPanel extends JPanel {
       statement.append("Total Investment:\t\t\t$" + pt.getTotalInvestment() + "\n");
       statement.append("Total Portfolio Valuation on " + pt.getTimeStamp() + ":\t\t$" + pt.getTotalValue() + "\n");
 
-      System.out.println(statement);
+
       viewPortfolioJTextArea.setText(statement.toString());
 
 

@@ -22,7 +22,12 @@ public class Main {
    */
   public static void main(String[] args) throws ParseException, IOException {
 
-    String option = args[0].toUpperCase();
+    String option = "";
+    if(args.length!= 0) {
+      option = args[0].toUpperCase();
+    }else {
+      throw new IllegalArgumentException("Type of User Interface Not Specified");
+    }
 
     if(option.equals(TypeOfUserInterface.GUI.name()) || option.equals(TypeOfUserInterface.CONSOLE.name())){
       InvestModelInterfaceNew im = new InvestmentModelNew();

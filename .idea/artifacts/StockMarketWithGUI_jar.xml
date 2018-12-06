@@ -4,8 +4,10 @@
     <root id="archive" name="StockMarketWithGUI.jar">
       <element id="module-output" name="StockMarketWithGUI" />
       <element id="extracted-dir" path="$PROJECT_DIR$/jar_files/jackson-core-2.9.7.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/jar_files/jfreechart-1.0.19.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/jar_files/jackson-annotations-2.9.0.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/jar_files/jackson-databind-2.9.7.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/jar_files/jcommon-1.0.23.jar" path-in-jar="/" />
     </root>
   </artifact>
 </component>
