@@ -2,6 +2,9 @@
 package view;
 
 
+import org.jfree.ui.RefineryUtilities;
+
+import java.awt.*;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -131,6 +134,7 @@ public class IntroJFrame extends JFrame implements InvestmentGUIInterface {
                             .addComponent(jSplitPane1, GroupLayout.PREFERRED_SIZE, 512, GroupLayout.PREFERRED_SIZE)
                             .addGap(0, 0, Short.MAX_VALUE))
     );
+
 
     setVisible(true);
 

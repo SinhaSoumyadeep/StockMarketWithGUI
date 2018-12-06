@@ -163,7 +163,6 @@ public class Controller implements Features, IStockMarketController {
   @Override
   public void plotGraph(String portfolioName, String startDate, String endDate, String frequency )  {
     frequency = frequency.trim();
-    System.out.println(frequency);
     GraphPlotter chart = new GraphPlotter("Total Valueation of "+portfolioName );
     chart.plotGraph(createDataset(portfolioName,startDate,endDate,Integer.parseInt(frequency)), portfolioName);
     chart.pack();
