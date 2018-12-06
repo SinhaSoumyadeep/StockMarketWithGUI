@@ -168,8 +168,9 @@ public class IntroJFrame extends JFrame implements InvestmentGUIInterface {
 
     });
     plotGraphBtn.addActionListener(l -> {
-      GraphJPanel g = new GraphJPanel();
+      GraphJPanel g = new GraphJPanel(this.portfollioList);
       jSplitPane1.setRightComponent(g);
+      g.delegateActions(f);
 
     });
     strategyBtn.addActionListener(l -> {

@@ -5,9 +5,13 @@ import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import org.jfree.data.category.DefaultCategoryDataset;
+import org.jfree.ui.RefineryUtilities;
+
 import java.io.File;
 import java.io.IOException;
 import java.text.ParseException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -20,6 +24,7 @@ import model.InvestmentStrategyInterface;
 import transferable.PortfolioTransferable;
 import utility.DateUtility;
 import utility.Options;
+import view.GraphPlotter;
 import view.InvestmentGUIInterface;
 import view.InvestmentViewInterface;
 
@@ -144,11 +149,7 @@ public class Controller implements Features, IStockMarketController {
     System.exit(0);
   }
 
-  @Override
-  public boolean validateDate(String date) {
-    DateUtility du = new DateUtility();
-    return du.checkDateValidity(date);
-  }
+
 
   @Override
   public void implementStrategy(String portfolioName, String fixedAmount, String startDate, String endDate, String frequency, String commission, String weights) {
@@ -157,6 +158,32 @@ public class Controller implements Features, IStockMarketController {
               startDate, endDate, Integer.parseInt(frequency), commission);
       model.registerStrategy(da, portfolioName,weightsToWeightsHashMapConverter(weights));
 
+  }
+
+  @Override
+  public void plotGraph(String portfolioName, String startDate, String endDate, String frequency )  {
+    frequency = frequency.trim();
+    System.out.println(frequency);
+    GraphPlotter chart = new GraphPlotter("Total Valueation of "+portfolioName );
+    chart.plotGraph(createDataset(portfolioName,startDate,endDate,Integer.parseInt(frequency)), portfolioName);
+    chart.pack();
+    RefineryUtilities.centerFrameOnScreen( chart );
+    chart.setVisible( true );
+  }
+
+  private DefaultCategoryDataset createDataset(String portfolioName, String startDate, String endDate, Integer frequency ) {
+    DefaultCategoryDataset dataset = new DefaultCategoryDataset( );
+    DateUtility du = new DateUtility();
+    LocalDate sDate = du.stringToDateConverter(startDate);
+    LocalDate eDate = du.stringToDateConverter(endDate);
+    LocalDate next = sDate;
+
+    while(next.isEqual(eDate) || next.isBefore(eDate)){
+      dataset.addValue( model.evaluatePortfolio(portfolioName,next.toString()).getTotalValue() , "stockValue" , next.toString() );
+      next = next.plusDays(frequency);
+    }
+
+    return dataset;
   }
 
 
