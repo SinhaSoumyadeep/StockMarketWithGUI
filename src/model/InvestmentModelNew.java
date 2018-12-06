@@ -103,6 +103,19 @@ public class InvestmentModelNew extends InvestmentModel implements InvestModelIn
       throw new IllegalArgumentException("Fixed amount cannot be negative.");
     }
 
+    if(weights.keySet().size() != getStocksInPortfolio(portfolioName).size())
+    {
+      throw new IllegalArgumentException("the number of stocks in weights does " +
+              "not match with the number of stocks in portfolio");
+    }
+    for(String stocks: weights.keySet())
+    {
+      if(!getStocksInPortfolio(portfolioName).contains(stocks)){
+        throw new IllegalArgumentException("Stocks entered in weights does " +
+                "not match the stocks in portfolio.");
+      }
+    }
+
     portfolioName = portfolioName.toUpperCase();
     if(checkIfPortfolioIsEmpty(portfolioName)){
       throw new IllegalArgumentException("Portfolio has no contents.");

@@ -9,11 +9,16 @@ import java.io.File;
 import java.io.IOException;
 import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.StringTokenizer;
 
+import model.DollarCostAverageStrategy;
 import model.InvestModelInterfaceNew;
 import model.InvestmentModelNew;
+import model.InvestmentStrategyInterface;
 import transferable.PortfolioTransferable;
+import utility.DateUtility;
 import utility.Options;
 import view.InvestmentViewInterface;
 
@@ -91,6 +96,16 @@ public class Controller implements Features {
   }
 
   @Override
+  public void investStocks(String portfolioName, String fixedAmount, String weights, String timeStamp, String commission) {
+
+    try {
+      model.investStocks(portfolioName,Double.parseDouble(fixedAmount),weightsToWeightsHashMapConverter(weights),timeStamp,commission);
+    } catch (ParseException e) {
+      view.displayMessage("Error", e.getMessage());
+    }
+  }
+
+  @Override
   public List<String> getStocksInPortfolio(String portfolioName){
 
     List<String> display = new ArrayList<>();
@@ -119,6 +134,21 @@ public class Controller implements Features {
     System.exit(0);
   }
 
+  @Override
+  public boolean validateDate(String date) {
+    DateUtility du = new DateUtility();
+    return du.checkDateValidity(date);
+  }
+
+  @Override
+  public void implementStrategy(String portfolioName, String fixedAmount, String startDate, String endDate, String frequency, String commission, String weights) {
+
+      InvestmentStrategyInterface da = new DollarCostAverageStrategy(Double.parseDouble(fixedAmount),
+              startDate, endDate, Integer.parseInt(frequency), commission);
+      model.registerStrategy(da, portfolioName,weightsToWeightsHashMapConverter(weights));
+
+  }
+
 
   private void saveData() throws IOException {
     System.out.println("SAVING MODEL!!");
@@ -134,6 +164,20 @@ public class Controller implements Features {
     InvestModelInterfaceNew obj = objectMapper.readValue(new File("savedFile/Eve.json"),
             InvestmentModelNew.class);
     return obj;
+  }
+
+  private HashMap<String, Double> weightsToWeightsHashMapConverter(String weights){
+    HashMap<String,Double> weightsMap = new HashMap<String,Double>();
+    StringTokenizer token = new StringTokenizer(weights, ",");
+
+    while (token.hasMoreTokens())
+    {
+      StringTokenizer token2 = new StringTokenizer(token.nextToken().toString().trim()," ");
+      weightsMap.put(token2.nextToken(),Double.parseDouble(token2.nextToken()));
+    }
+
+    return weightsMap;
+
   }
 
 

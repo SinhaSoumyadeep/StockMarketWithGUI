@@ -142,7 +142,12 @@ public class DollarCostAverageStrategy implements InvestmentStrategyInterface {
         }
       } catch (Exception e) {
 
-        nextDate = nextDate.plusDays(1);
+        if(e.getMessage().toUpperCase().contains("MARKET") && e.getMessage().toUpperCase().contains("CLOSED")) {
+          nextDate = nextDate.plusDays(1);
+        }
+        else {
+          throw new IllegalArgumentException(e.getMessage());
+        }
       }
 
     }

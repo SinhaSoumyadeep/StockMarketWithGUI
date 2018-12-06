@@ -470,6 +470,7 @@ public class IntroJFrame extends JFrame implements InvestmentViewInterface {
       DollarCostStrategyJPanel dc = new DollarCostStrategyJPanel(this.portfollioList);
       JScrollPane pane = new JScrollPane(dc);
       jSplitPane1.setRightComponent(pane);
+      dc.delegateActions(f);
 
     });
     viewPortfolioIntroBtn.addActionListener(l -> {

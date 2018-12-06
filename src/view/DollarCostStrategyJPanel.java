@@ -1,9 +1,12 @@
 
 package view;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.*;
+
+import controller.Features;
 
 
 public class DollarCostStrategyJPanel extends JPanel {
@@ -36,7 +39,10 @@ public class DollarCostStrategyJPanel extends JPanel {
    * Creates new form DollarCostStrategyJPanel
    */
   public DollarCostStrategyJPanel(List<String> portfollioList) {
-    this.portfollioList = portfollioList;
+    ArrayList<String> options = new ArrayList<>();
+    options.add("SELECT BELOW");
+    options.addAll(portfollioList);
+    this.portfollioList = options;
     initComponents();
     currentStocksJTextArea.setEditable(false);
   }
@@ -186,19 +192,55 @@ public class DollarCostStrategyJPanel extends JPanel {
                             .addComponent(assignIndividualWeightsBtn)
                             .addContainerGap())
     );
-  }// </editor-fold>
-
-  private void enterStartDateInStrategyJTextFieldActionPerformed(java.awt.event.ActionEvent evt) {
-    // TODO add your handling code here:
   }
 
-  private void assignIndividualWeightsBtnActionPerformed(java.awt.event.ActionEvent evt) {
-    // TODO add your handling code here:
+  public void delegateActions(Features f) {
+
+    portfolioNameInStrategyJCombo.addActionListener(l -> {
+
+      StringBuffer display = new StringBuffer();
+      int count = 1;
+      for (String stock : f.getStocksInPortfolio(portfolioNameInStrategyJCombo.getSelectedItem().toString())) {
+        display = display.append( count + ". " + stock + "\n");
+        count++;
+      }
+
+      currentStocksJTextArea.setText(display.toString().trim());
+
+
+    });
+
+    assignIndividualWeightsBtn.addActionListener(l -> {
+      try {
+        f.implementStrategy(portfolioNameInStrategyJCombo.getSelectedItem().toString(),enterFixedAmountJTextField.getText(),enterStartDateInStrategyJTextField.getText(),enterEndDateInStrategyJTextField1.getText(),enterFrequencyJTextField1.getText(),enterCommissionInStrategyJTextField.getText(),enterWeightsJTextField.getText());
+        displayMessage("Thank You!", "Thank you for investing: $" + enterFixedAmountJTextField.getText() + " on portfolio: " + portfolioNameInStrategyJCombo.getSelectedItem().toString());
+        reset();
+      }
+      catch (NumberFormatException n){
+        displayMessage("ERROR", "Please enter weights according to the specified format.");
+        enterWeightsJTextField.setText("");
+      }
+      catch (Exception e){
+
+        displayMessage("ERROR",e.getMessage());
+      }
+
+    });
+
   }
 
-  private void enterEndDateInStrategyJTextField1ActionPerformed(java.awt.event.ActionEvent evt) {
-    // TODO add your handling code here:
+  private void reset() {
+    enterFixedAmountJTextField.setText("");
+    enterCommissionInStrategyJTextField.setText("");
+    enterStartDateInStrategyJTextField.setText("");
+    enterEndDateInStrategyJTextField1.setText("");
+    currentStocksJTextArea.setText("");
+    enterWeightsJTextField.setText("");
+    enterFrequencyJTextField1.setText("");
   }
 
+  private void displayMessage(String title, String message) {
+    JOptionPane.showMessageDialog(null, message, "InfoBox: " + title, JOptionPane.INFORMATION_MESSAGE);
+  }
 
 }

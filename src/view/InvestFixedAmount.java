@@ -6,7 +6,9 @@ import java.util.List;
 
 import javax.swing.*;
 
+
 import controller.Features;
+
 
 
 public class InvestFixedAmount extends JPanel {
@@ -198,6 +200,24 @@ public class InvestFixedAmount extends JPanel {
       reset();
     });
 
+    assignIndividualWeightsBtn.addActionListener(l -> {
+      try {
+      f.investStocks(portfolioNameInInvestFixedJCombo.getSelectedItem().toString(), enterFixedAmountJTextField.getText(),enterWeightsJTextField.getText(), enterDateInInvestFixedJTextField.getText(), enterCommissionInInvestFixedJTextField.getText());
+        displayMessage("Thank You!", "Thank you for investing: $" + enterFixedAmountJTextField.getText() + " on portfolio: " + portfolioNameInInvestFixedJCombo.getSelectedItem().toString());
+        reset();
+      }
+      catch (NumberFormatException n){
+        displayMessage("ERROR", "Please enter weights according to the specified format.");
+        enterWeightsJTextField.setText("");
+      }
+      catch (Exception e){
+
+        displayMessage("ERROR",e.getMessage());
+      }
+
+    });
+
+
   }
 
 
@@ -206,6 +226,7 @@ public class InvestFixedAmount extends JPanel {
     enterDateInInvestFixedJTextField.setText("");
     enterCommissionInInvestFixedJTextField.setText("");
     currentStocksJTextArea.setText("");
+    enterWeightsJTextField.setText("");
   }
 
   private void displayMessage(String title, String message) {
