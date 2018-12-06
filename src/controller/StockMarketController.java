@@ -22,6 +22,7 @@ import model.InvestmentModelNew;
 import test.Address;
 import test.person;
 import utility.Options;
+import view.InvestmentConsoleInterface;
 import view.InvestmentViewInterface;
 
 
@@ -57,7 +58,7 @@ import view.InvestmentViewInterface;
 public class StockMarketController implements IStockMarketController {
 
   private Readable readable;
-  private InvestmentViewInterface iv;
+  private InvestmentConsoleInterface iv;
   private InvestModelInterfaceNew im;
   private Scanner scan;
   private StringBuffer automate = new StringBuffer();
@@ -74,7 +75,7 @@ public class StockMarketController implements IStockMarketController {
 
 
     this.readable = readable;
-    this.iv = iv;
+    this.iv = (InvestmentConsoleInterface) iv;
     try {
       this.im = retrieveData();
     } catch (IOException e) {

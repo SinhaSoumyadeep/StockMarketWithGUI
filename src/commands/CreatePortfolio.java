@@ -5,6 +5,7 @@ import java.text.ParseException;
 import java.util.Scanner;
 
 import model.InvestModelInterfaceNew;
+import view.InvestmentConsoleInterface;
 import view.InvestmentViewInterface;
 
 /**
@@ -23,7 +24,7 @@ public class CreatePortfolio extends AbstractCommand {
    */
   public CreatePortfolio(InvestModelInterfaceNew im, InvestmentViewInterface iv, Scanner scan, StringBuffer automate) {
     this.im = im;
-    this.iv = iv;
+    this.iv = (InvestmentConsoleInterface) iv;
     this.scan = scan;
     this.automate = automate;
   }

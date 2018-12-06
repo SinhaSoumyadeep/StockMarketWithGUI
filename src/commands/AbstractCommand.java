@@ -5,6 +5,7 @@ import java.util.Scanner;
 import java.util.function.Function;
 
 import model.InvestModelInterfaceNew;
+import view.InvestmentConsoleInterface;
 import view.InvestmentViewInterface;
 
 /**
@@ -15,7 +16,7 @@ import view.InvestmentViewInterface;
 public abstract class AbstractCommand implements Commands {
 
 
-  protected InvestmentViewInterface iv;
+  protected InvestmentConsoleInterface iv;
   protected InvestModelInterfaceNew im;
   protected StringBuffer automate;
   protected Scanner scan;

@@ -50,7 +50,7 @@ public class Main {
 
     InvestModelInterfaceNew im = new InvestmentModelNew();
     InvestmentViewInterface iv = new IntroJFrame();
-    Controller controller = new Controller(im, iv);
+    IStockMarketController controller = new Controller(im, iv);
 
 
 

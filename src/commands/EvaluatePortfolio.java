@@ -7,6 +7,7 @@ import java.util.Scanner;
 import model.InvestModelInterfaceNew;
 import utility.DateUtility;
 import utility.Options;
+import view.InvestmentConsoleInterface;
 import view.InvestmentViewInterface;
 
 /**
@@ -27,7 +28,7 @@ public class EvaluatePortfolio extends AbstractCommand {
    */
   public EvaluatePortfolio(InvestModelInterfaceNew im, InvestmentViewInterface iv, Scanner scan, Options statement, StringBuffer automate) {
     this.im = im;
-    this.iv = iv;
+    this.iv = (InvestmentConsoleInterface) iv;
     this.scan = scan;
     this.automate = automate;
     this.statement = statement;

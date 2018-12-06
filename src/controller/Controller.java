@@ -20,10 +20,11 @@ import model.InvestmentStrategyInterface;
 import transferable.PortfolioTransferable;
 import utility.DateUtility;
 import utility.Options;
+import view.InvestmentGUIInterface;
 import view.InvestmentViewInterface;
 
 public class Controller implements Features, IStockMarketController {
-  private InvestmentViewInterface view;
+  private InvestmentGUIInterface view;
   private InvestModelInterfaceNew model;
 
 
@@ -37,7 +38,7 @@ public class Controller implements Features, IStockMarketController {
       this.model = model;
     }
 
-    view = v;
+    view = (InvestmentGUIInterface) v;
 
   }
 
