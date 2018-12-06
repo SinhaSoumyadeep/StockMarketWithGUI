@@ -13,6 +13,7 @@ import java.util.List;
 import javax.swing.*;
 
 import controller.Controller;
+import controller.ControllerFactory;
 import controller.IStockMarketController;
 import controller.StockMarketController;
 import model.InvestModelInterfaceNew;
@@ -22,6 +23,7 @@ import test.person;
 import view.IntroJFrame;
 import view.InvestmentView;
 import view.InvestmentViewInterface;
+import view.ViewFactory;
 
 /**
  * This is the driver class for the stock market program.
@@ -36,21 +38,15 @@ public class Main {
    */
   public static void main(String[] args) throws ParseException, IOException {
 
-/*
+
     InvestModelInterfaceNew im = new InvestmentModelNew();
-
-    InvestmentViewInterface iv = new InvestmentView(System.out);
-
-    IStockMarketController sm = new StockMarketController(new InputStreamReader(System.in), iv, im);
+    InvestmentViewInterface iv = ViewFactory.generateViewFactory("GUI");
+    IStockMarketController controller = ControllerFactory.generateControllerFactory("GUI",iv,im);
     try {
-      sm.startStockMarket();
+      controller.startStockMarket();
     } catch (ParseException e) {
       e.printStackTrace();
-    }*/
-
-    InvestModelInterfaceNew im = new InvestmentModelNew();
-    InvestmentViewInterface iv = new IntroJFrame();
-    IStockMarketController controller = new Controller(im, iv);
+    }
 
 
 
