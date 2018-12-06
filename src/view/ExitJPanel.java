@@ -1,18 +1,13 @@
 
 package view;
 
-
-import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import com.fasterxml.jackson.annotation.PropertyAccessor;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
-import java.io.File;
-import java.io.IOException;
-
 import controller.Features;
-import model.InvestModelInterfaceNew;
-import model.InvestmentModelNew;
 
+
+/**
+ * This JPannel is the view for exiting the application with or without saving the current state of
+ * the application User Interface.
+ */
 public class ExitJPanel extends javax.swing.JPanel {
 
   private javax.swing.JLabel exitJLabel;
@@ -27,6 +22,9 @@ public class ExitJPanel extends javax.swing.JPanel {
   }
 
 
+  /**
+   * This method is the composition of the exit view or how it would show in the GUI.
+   */
   private void initComponents() {
 
     exitJLabel = new javax.swing.JLabel();
@@ -66,6 +64,11 @@ public class ExitJPanel extends javax.swing.JPanel {
     );
   }
 
+  /**
+   * This method is used to Delegate actions to the controller.
+   *
+   * @param f the object of the feature interface or controller.
+   */
   public void delegateActions(Features f) {
     yesButtonInExitBtn.addActionListener(l -> {
       f.saveModel();

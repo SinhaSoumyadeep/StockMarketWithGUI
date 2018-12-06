@@ -9,7 +9,10 @@ import javax.swing.*;
 import controller.Features;
 import validation.Validator;
 
-
+/**
+ * This JPannel is the view for the Dollar Cost Strategy registration on a portfolio User
+ * Interface.
+ */
 public class DollarCostStrategyJPanel extends JPanel {
 
 
@@ -49,6 +52,10 @@ public class DollarCostStrategyJPanel extends JPanel {
   }
 
 
+  /**
+   * This method is the composition of the Dollar Cost Strategy registration on a portfolio view or
+   * how it would show in the GUI.
+   */
   private void initComponents() {
 
     enterStartDateInStrategyJLabel = new JLabel();
@@ -74,12 +81,6 @@ public class DollarCostStrategyJPanel extends JPanel {
 
     enterStartDateInStrategyJLabel.setText("Enter Start Date (Format: YYYY-MM-DD):-");
 
-    /*enterStartDateInStrategyJTextField.addActionListener(new java.awt.event.ActionListener() {
-      public void actionPerformed(java.awt.event.ActionEvent evt) {
-        enterStartDateInStrategyJTextFieldActionPerformed(evt);
-      }
-    });*/
-
     portfolioNameInStrategyJCombo.setModel(new DefaultComboBoxModel<>(portfollioList.toArray(new String[0])));
 
     enterCommissionInStrategyJLabel.setText("Enter Commission:-");
@@ -87,11 +88,6 @@ public class DollarCostStrategyJPanel extends JPanel {
     StrategyHomeJLabel.setText("Dollar Cost Averaging Strategy");
 
     assignIndividualWeightsBtn.setText("Invest using Individual Weights");
-    /*assignIndividualWeightsBtn.addActionListener(new java.awt.event.ActionListener() {
-      public void actionPerformed(java.awt.event.ActionEvent evt) {
-        assignIndividualWeightsBtnActionPerformed(evt);
-      }
-    });*/
 
     enterPortfolioNameStrategyJLabel.setText("Enter Portfolio to Invest Fixed Amount:-");
 
@@ -102,12 +98,6 @@ public class DollarCostStrategyJPanel extends JPanel {
     enterWeightsFormatJLabel.setText("Format: Stock1 Weight1,Stock2 Weight2... (Example: GOOG 50,TCS 40...)");
 
     enterEndDateInStrategyJLabel1.setText("Enter End Date (Format: YYYY-MM-DD):-");
-
-    /*enterEndDateInStrategyJTextField1.addActionListener(new java.awt.event.ActionListener() {
-      public void actionPerformed(java.awt.event.ActionEvent evt) {
-        enterEndDateInStrategyJTextField1ActionPerformed(evt);
-      }
-    });*/
 
     enterFrequencyJLabel1.setText("Enter Frequency (in days):-");
 
@@ -195,6 +185,11 @@ public class DollarCostStrategyJPanel extends JPanel {
     );
   }
 
+  /**
+   * This method is used to Delegate actions to the controller.
+   *
+   * @param f the object of the feature interface or controller.
+   */
   public void delegateActions(Features f) {
 
     portfolioNameInStrategyJCombo.addActionListener(l -> {
@@ -241,6 +236,9 @@ public class DollarCostStrategyJPanel extends JPanel {
 
   }
 
+  /**
+   * This method is used to reset everything back to its original state.
+   */
   private void reset() {
     enterFixedAmountJTextField.setText("");
     enterCommissionInStrategyJTextField.setText("");
@@ -251,6 +249,12 @@ public class DollarCostStrategyJPanel extends JPanel {
     enterFrequencyJTextField1.setText("");
   }
 
+  /**
+   * This method is used to Display message in a dialogue box format.
+   *
+   * @param title   the title.
+   * @param message the message.
+   */
   private void displayMessage(String title, String message) {
     JOptionPane.showMessageDialog(null, message, "InfoBox: " + title, JOptionPane.INFORMATION_MESSAGE);
   }

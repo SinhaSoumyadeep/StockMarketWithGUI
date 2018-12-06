@@ -6,6 +6,9 @@ import javax.swing.*;
 
 import controller.Features;
 
+/**
+ * This JPannel is the view for the Creation of the Portfolio User Interface.
+ */
 public class CreatePortfolioJPanel extends JPanel {
 
 
@@ -15,10 +18,16 @@ public class CreatePortfolioJPanel extends JPanel {
   private JTextField portfolioNameJTextField;
 
 
+  /**
+   * Instantiates a new Create portfolio j panel.
+   */
   public CreatePortfolioJPanel() {
     initComponents();
   }
 
+  /**
+   * This method is the composition of the Create Portfolio view or how it would show in the GUI.
+   */
   private void initComponents() {
 
     enterPortfolioJLabel = new JLabel();
@@ -61,6 +70,11 @@ public class CreatePortfolioJPanel extends JPanel {
     );
   }
 
+  /**
+   * This method is used to Delegate actions to the controller.
+   *
+   * @param f the object of the feature interface or controller.
+   */
   public void delegateActions(Features f) {
     createPortfolioInJPanelBtn.addActionListener(l -> {
       try {
@@ -77,6 +91,12 @@ public class CreatePortfolioJPanel extends JPanel {
     });
   }
 
+  /**
+   * This method is used to Display message in a dialogue box format.
+   *
+   * @param title   the title.
+   * @param message the message.
+   */
   private void displayMessage(String title, String message) {
     JOptionPane.showMessageDialog(null, message, "InfoBox: " + title,
             JOptionPane.INFORMATION_MESSAGE);

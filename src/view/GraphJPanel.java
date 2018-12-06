@@ -10,6 +10,9 @@ import javax.swing.*;
 import controller.Features;
 import validation.Validator;
 
+/**
+ * This JPannel is the view for plotting the graph of the portfolio User Interface.
+ */
 public class GraphJPanel extends JPanel {
 
 
@@ -35,6 +38,9 @@ public class GraphJPanel extends JPanel {
   }
 
 
+  /**
+   * This method is the composition of the graph plotting view or how it would show in the GUI.
+   */
   private void initComponents() {
 
     portfolioNameInPlotGraphJCombo = new JComboBox<>();
@@ -112,6 +118,11 @@ public class GraphJPanel extends JPanel {
     );
   }
 
+  /**
+   * This method is used to Delegate actions to the controller.
+   *
+   * @param f the object of the feature interface or controller.
+   */
   public void delegateActions(Features f) {
     plotGraphBtn.addActionListener(l -> {
       Validator v = new Validator();

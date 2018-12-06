@@ -8,7 +8,9 @@ import javax.swing.*;
 import controller.Features;
 import validation.Validator;
 
-
+/**
+ * This JPannel is the view for the Buy stocks for a portfolio User Interface.
+ */
 public class BuyStocksJPanel extends JPanel {
 
 
@@ -34,7 +36,10 @@ public class BuyStocksJPanel extends JPanel {
     initComponents();
   }
 
-
+  /**
+   * This method is the composition of the Buy stocks for a Portfolio view or how it would show in
+   * the GUI.
+   */
   private void initComponents() {
 
     enterTickerJLabel = new JLabel();
@@ -119,6 +124,11 @@ public class BuyStocksJPanel extends JPanel {
     );
   }
 
+  /**
+   * This method is used to Delegate actions to the controller.
+   *
+   * @param f the object of the feature interface or controller.
+   */
   public void delegateActions(Features f) {
     buyStocksJPanelBtn.addActionListener(l -> {
       Validator v = new Validator();
@@ -135,6 +145,9 @@ public class BuyStocksJPanel extends JPanel {
     });
   }
 
+  /**
+   * This method is used to reset everything back to its original state.
+   */
   private void reset() {
     enterTickerJTextField.setText("");
     enterDateJTextField.setText("");

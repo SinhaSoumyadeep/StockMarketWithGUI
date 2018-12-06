@@ -2,20 +2,16 @@
 package view;
 
 
-import org.jfree.ui.RefineryUtilities;
-
-import java.awt.*;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.*;
 
 import controller.Features;
-import transferable.PortfolioTransferable;
-import transferable.StockTransferable;
-import utility.Options;
 
+/**
+ * This class is the main view or the frame of the GUI based user interface.
+ */
 public class IntroJFrame extends JFrame implements InvestmentGUIInterface {
 
 
@@ -40,6 +36,9 @@ public class IntroJFrame extends JFrame implements InvestmentGUIInterface {
   }
 
 
+  /**
+   * This method is the composition of the view or how it would show in the GUI.
+   */
   private void initComponents() {
 
     jSplitPane1 = new JSplitPane();
@@ -141,6 +140,12 @@ public class IntroJFrame extends JFrame implements InvestmentGUIInterface {
   }
 
 
+  /**
+   * This is the Sets of features defined in the controller class that is used to perform the
+   * actions.
+   *
+   * @param f the f
+   */
   @Override
   public void setFeatures(Features f) {
 
@@ -191,16 +196,32 @@ public class IntroJFrame extends JFrame implements InvestmentGUIInterface {
 
   }
 
+  /**
+   * This method is used to Update the portfolio option when the application is loaded or when  a
+   * new portfolio is added. This is used to populate the various drop downs that requires the
+   * portfolio names.
+   *
+   * @param listOfportfolio the list of portfolio names.
+   */
   @Override
   public void updatePortfolioOption(List<String> listOfportfolio) {
     portfollioList = listOfportfolio;
   }
 
+  /**
+   * This method is used to Display message in a dialogue box format.
+   *
+   * @param title   the title.
+   * @param message the message.
+   */
   @Override
   public void displayMessage(String title, String message) {
     JOptionPane.showMessageDialog(null, message, "InfoBox: " + title, JOptionPane.INFORMATION_MESSAGE);
   }
 
+  /**
+   * This method is used to Exit the program gracefully.
+   */
   @Override
   public void exitGracefully() {
     if (isDisplayable()) {
@@ -208,6 +229,11 @@ public class IntroJFrame extends JFrame implements InvestmentGUIInterface {
     }
   }
 
+  /**
+   * This method is used to define which User Interface is in use.
+   *
+   * @return the string mentioning the type of UI in use.
+   */
   @Override
   public String guiInUse() {
     return "GUI";

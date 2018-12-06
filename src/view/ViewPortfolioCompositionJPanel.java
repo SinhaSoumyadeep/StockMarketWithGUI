@@ -8,9 +8,11 @@ import javax.swing.*;
 import controller.Features;
 import transferable.PortfolioTransferable;
 import transferable.StockTransferable;
-import utility.Options;
 
 
+/**
+ * This JPannel is the view for viewing the composition and evaluate a portfolio User Interface.
+ */
 public class ViewPortfolioCompositionJPanel extends JPanel {
 
   private JComboBox<String> PortfolioNameInViewJCombo;
@@ -34,7 +36,10 @@ public class ViewPortfolioCompositionJPanel extends JPanel {
     viewPortfolioJTextArea.setEditable(false);
   }
 
-
+  /**
+   * This method is the composition of the view of the composition and evaluate a portfolio view or
+   * how it would show in the GUI.
+   */
   private void initComponents() {
 
     jProgressBar1 = new JProgressBar();
@@ -109,6 +114,11 @@ public class ViewPortfolioCompositionJPanel extends JPanel {
   }
 
 
+  /**
+   * This method is used to Delegate actions to the controller.
+   *
+   * @param f the object of the feature interface or controller.
+   */
   public void delegateActions(Features f) {
     viewPortfolioCompositionBtn.addActionListener(l -> {
 
@@ -154,6 +164,9 @@ public class ViewPortfolioCompositionJPanel extends JPanel {
 
   }
 
+  /**
+   * This method is used to reset everything back to its original state.
+   */
   private void reset() {
     enterTimestampJTextField.setText("");
   }

@@ -35,7 +35,7 @@ public interface InvestmentGUIInterface extends InvestmentViewInterface {
   void displayMessage(String title, String message);
 
   /**
-   * This methos is used to Exit the program gracefully.
+   * This method is used to Exit the program gracefully.
    */
   void exitGracefully();
 }

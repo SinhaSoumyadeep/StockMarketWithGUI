@@ -8,13 +8,27 @@ import org.jfree.data.category.DefaultCategoryDataset;
 
 import javax.swing.*;
 
+/**
+ * This class is used to actually plot graphs.
+ */
 public class GraphPlotter extends JFrame {
 
+  /**
+   * Instantiates a new Graph plotter.
+   *
+   * @param applicationTitle the application title
+   */
   public GraphPlotter(String applicationTitle) {
     super(applicationTitle);
 
   }
 
+  /**
+   * This method is used to Plot graphs.
+   *
+   * @param dataset    the dataset
+   * @param chartTitle the chart title
+   */
   public void plotGraph(DefaultCategoryDataset dataset, String chartTitle) {
     JFreeChart lineChart = ChartFactory.createLineChart(
             chartTitle,

@@ -332,7 +332,11 @@ public class InvestmentView implements InvestmentConsoleInterface {
     view.append("\n The strategy will be ongoing\n");
   }
 
-
+  /**
+   * This method is used to define which User Interface is in use.
+   *
+   * @return the string mentioning the type of UI in use.
+   */
   @Override
   public String guiInUse() {
     return "console";

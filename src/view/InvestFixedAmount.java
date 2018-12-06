@@ -10,7 +10,9 @@ import javax.swing.*;
 import controller.Features;
 import validation.Validator;
 
-
+/**
+ * This JPannel is the view for the InvestFixed amount on a portfolio User Interface.
+ */
 public class InvestFixedAmount extends JPanel {
 
 
@@ -35,7 +37,7 @@ public class InvestFixedAmount extends JPanel {
 
 
   /**
-   * Creates new form InvestFixedAmount
+   * Creates new form InvestFixedAmount.
    */
   public InvestFixedAmount(List<String> portfollioList) {
 
@@ -47,7 +49,10 @@ public class InvestFixedAmount extends JPanel {
     currentStocksJTextArea.setEditable(false);
   }
 
-
+  /**
+   * This method is the composition of the InvestFixed amount on a portfolio view or how it would
+   * show in the GUI.
+   */
   private void initComponents() {
 
     investFixedAmountHomeJLabel = new JLabel();
@@ -76,22 +81,11 @@ public class InvestFixedAmount extends JPanel {
 
     enterDateInInvestFixedJLabel.setText("Enter Date (Format: YYYY-MM-DD):-");
 
-       /* enterDateInInvestFixedJTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                enterDateInInvestFixedJTextFieldActionPerformed(evt);
-            }
-        });*/
-
     enterCommissionInInvestFixedJLabel.setText("Enter Commission:-");
 
     assignEqualWeightsBtn.setText("Invest using Equal Weights");
 
     assignIndividualWeightsBtn.setText("Invest using Individual Weights");
-       /* assignIndividualWeightsBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                assignIndividualWeightsBtnActionPerformed(evt);
-            }
-        });*/
 
     enterWeightsJLabel.setText("Enter Individual Weights");
 
@@ -171,6 +165,11 @@ public class InvestFixedAmount extends JPanel {
   }
 
 
+  /**
+   * This method is used to Delegate actions to the controller.
+   *
+   * @param f the object of the feature interface or controller.
+   */
   public void delegateActions(Features f) {
 
     portfolioNameInInvestFixedJCombo.addActionListener(l -> {
@@ -237,7 +236,9 @@ public class InvestFixedAmount extends JPanel {
 
   }
 
-
+  /**
+   * This method is used to reset everything back to its original state.
+   */
   private void reset() {
     enterFixedAmountJTextField.setText("");
     enterDateInInvestFixedJTextField.setText("");
@@ -246,6 +247,12 @@ public class InvestFixedAmount extends JPanel {
     enterWeightsJTextField.setText("");
   }
 
+  /**
+   * This method is used to Display message in a dialogue box format.
+   *
+   * @param title   the title.
+   * @param message the message.
+   */
   private void displayMessage(String title, String message) {
     JOptionPane.showMessageDialog(null, message, "InfoBox: " + title,
             JOptionPane.INFORMATION_MESSAGE);
