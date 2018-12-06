@@ -17,7 +17,7 @@ public final class Stock implements Serializable {
   private final List<Transaction> stockHistory;
 
 
-  public Stock(){
+  public Stock() {
     super();
     ticker = new String();
     totalPrice = new String();
@@ -33,7 +33,7 @@ public final class Stock implements Serializable {
    * @param timeStamp      time stamp of the stock.
    * @param buyingPrice    the buying price of the stock.
    * @param numberOfshares he number of shares bought.
-   * @param commission the commission fees.
+   * @param commission     the commission fees.
    */
   public Stock(String ticker, String timeStamp, String buyingPrice, Double numberOfshares, String commission) {
     this.ticker = ticker;
@@ -94,7 +94,6 @@ public final class Stock implements Serializable {
   public String getTicker() {
     return ticker;
   }
-
 
 
 }

@@ -20,11 +20,11 @@ public class EvaluatePortfolio extends AbstractCommand {
   /**
    * Instantiates a new Evaluate portfolio.
    *
-   * @param im       the Investment model
-   * @param iv       the Investment view
-   * @param scan     the scan the scanner object.
+   * @param im        the Investment model
+   * @param iv        the Investment view
+   * @param scan      the scan the scanner object.
    * @param statement the option to view mini statement or detailed statement.
-   * @param automate string buffer.
+   * @param automate  string buffer.
    */
   public EvaluatePortfolio(InvestModelInterfaceNew im, InvestmentViewInterface iv, Scanner scan, Options statement, StringBuffer automate) {
     this.im = im;
@@ -41,7 +41,7 @@ public class EvaluatePortfolio extends AbstractCommand {
    * @throws ParseException if the date is invalid.
    */
   @Override
-  public void execute() throws IOException,ParseException {
+  public void execute() throws IOException, ParseException {
     DateUtility du = new DateUtility();
 
     iv.displayAllPortfolioNames(im.getPortfolioNames());

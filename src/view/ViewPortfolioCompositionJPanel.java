@@ -109,8 +109,6 @@ public class ViewPortfolioCompositionJPanel extends JPanel {
   }
 
 
-
-
   public void delegateActions(Features f) {
     viewPortfolioCompositionBtn.addActionListener(l -> {
 
@@ -152,7 +150,6 @@ public class ViewPortfolioCompositionJPanel extends JPanel {
       reset();
       repaint();
     });
-
 
 
   }

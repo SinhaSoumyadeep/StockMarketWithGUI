@@ -17,13 +17,13 @@ public final class Transaction implements Serializable, Comparable {
   private final String commission;
 
 
-  public Transaction(){
-      super();
-      ticker = new String();
-      timeStamp = new String();
-      buyingPrice = new String();
-      noOfShares = new Double(0.0);
-      commission = new String();
+  public Transaction() {
+    super();
+    ticker = new String();
+    timeStamp = new String();
+    buyingPrice = new String();
+    noOfShares = new Double(0.0);
+    commission = new String();
   }
 
   /**

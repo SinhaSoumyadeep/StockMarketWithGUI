@@ -18,6 +18,9 @@ import properties.PropertiesLoader;
 public abstract class AbstractController implements IStockMarketController {
 
 
+  /**
+   * The Model.
+   */
   protected InvestModelInterfaceNew model;
 
   /**

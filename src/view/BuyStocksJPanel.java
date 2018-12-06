@@ -119,32 +119,28 @@ public class BuyStocksJPanel extends JPanel {
     );
   }
 
-  public void delegateActions(Features f){
+  public void delegateActions(Features f) {
     buyStocksJPanelBtn.addActionListener(l -> {
       Validator v = new Validator();
       if (v.checkDateValidity(enterDateJTextField.getText())) {
         return;
-      }
-      else if (v.checkNumberOfStocksValidity(enterStocksJTextField.getText())) {
+      } else if (v.checkNumberOfStocksValidity(enterStocksJTextField.getText())) {
+        return;
+      } else if (v.checkCommissionValidity(enterCommissionJTextField.getText())) {
         return;
       }
-      else if(v.checkCommissionValidity(enterCommissionJTextField.getText())){
-        return;
-      }
-      f.buyStocks(enterTickerJTextField.getText(),enterDateJTextField.getText(),enterStocksJTextField.getText(),enterCommissionJTextField.getText(),portfolioDropDownInBuyStocksJCombo.getSelectedItem().toString());
+      f.buyStocks(enterTickerJTextField.getText(), enterDateJTextField.getText(), enterStocksJTextField.getText(), enterCommissionJTextField.getText(), portfolioDropDownInBuyStocksJCombo.getSelectedItem().toString());
       reset();
       repaint();
     });
   }
 
-  private void reset()
-  {
+  private void reset() {
     enterTickerJTextField.setText("");
     enterDateJTextField.setText("");
     enterStocksJTextField.setText("");
     enterCommissionJTextField.setText("");
   }
-
 
 
 }

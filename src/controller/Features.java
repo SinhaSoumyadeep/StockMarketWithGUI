@@ -5,7 +5,7 @@ import java.util.List;
 import transferable.PortfolioTransferable;
 
 /**
- * This is an Interface caled Features which provides various features to the controller. This
+ * This is an Interface called Features which provides various features to the controller. This
  * interface is used to isolate the actions performed by the View and make them take care by the
  * controller instead.
  */

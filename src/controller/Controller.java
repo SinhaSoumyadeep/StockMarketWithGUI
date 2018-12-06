@@ -34,8 +34,17 @@ import view.InvestmentViewInterface;
  */
 public class Controller extends AbstractController implements Features {
 
+  /**
+   * The View.
+   */
   protected InvestmentGUIInterface view;
 
+  /**
+   * Instantiates a new Controller.
+   *
+   * @param model the model
+   * @param v     the v
+   */
   public Controller(InvestModelInterfaceNew model, InvestmentViewInterface v) {
     try {
       this.model = retrieveData();

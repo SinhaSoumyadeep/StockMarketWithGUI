@@ -114,7 +114,7 @@ public class InvestFixedAmount extends AbstractCommand {
 
     });
 
-    if(choice.equals("1")){
+    if (choice.equals("1")) {
       for (String stock : im.getStocksInPortfolio(portName)) {
 
         iv.viewEnterWeight(stock);
@@ -135,13 +135,10 @@ public class InvestFixedAmount extends AbstractCommand {
 
         weights.put(stock, Double.parseDouble(weight));
       }
-      im.investStocks(portName,Double.parseDouble(fixedAmount),weights,date,commission);
-    }
-    else if (choice.equals("2")){
-      im.investStocks(portName,Double.parseDouble(fixedAmount),date,commission);
-    }
-
-    else{
+      im.investStocks(portName, Double.parseDouble(fixedAmount), weights, date, commission);
+    } else if (choice.equals("2")) {
+      im.investStocks(portName, Double.parseDouble(fixedAmount), date, commission);
+    } else {
       throw new IllegalArgumentException("Invalid Option.");
     }
 

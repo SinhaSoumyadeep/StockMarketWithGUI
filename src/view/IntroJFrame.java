@@ -117,7 +117,6 @@ public class IntroJFrame extends JFrame implements InvestmentGUIInterface {
     );
 
 
-
     jSplitPane1.setRightComponent(jPanel2);
 
     GroupLayout layout = new GroupLayout(getContentPane());
@@ -140,7 +139,6 @@ public class IntroJFrame extends JFrame implements InvestmentGUIInterface {
 
     pack();
   }
-
 
 
   @Override
@@ -199,8 +197,7 @@ public class IntroJFrame extends JFrame implements InvestmentGUIInterface {
   }
 
   @Override
-  public void displayMessage(String title,String message)
-  {
+  public void displayMessage(String title, String message) {
     JOptionPane.showMessageDialog(null, message, "InfoBox: " + title, JOptionPane.INFORMATION_MESSAGE);
   }
 

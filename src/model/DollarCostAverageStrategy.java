@@ -57,10 +57,10 @@ public class DollarCostAverageStrategy implements InvestmentStrategyInterface {
   public DollarCostAverageStrategy(Double fixedAmount, String startDate, String endDate,
                                    Integer frequency, String commission) {
 
-    if(fixedAmount < 0){
+    if (fixedAmount < 0) {
       throw new IllegalArgumentException("Fixed amount cannot be negative.");
     }
-    if(frequency < 0){
+    if (frequency < 0) {
       throw new IllegalArgumentException("Frequency cannot be negative.");
     }
     DateUtility du = new DateUtility();
@@ -123,9 +123,6 @@ public class DollarCostAverageStrategy implements InvestmentStrategyInterface {
     }
 
 
-
-
-
     LocalDate transactionEndDateForSession = d.stringToDateConverter(timestamp);
     LocalDate beginDate = d.stringToDateConverter(startDate);
 
@@ -142,10 +139,9 @@ public class DollarCostAverageStrategy implements InvestmentStrategyInterface {
         }
       } catch (Exception e) {
 
-        if(e.getMessage().toUpperCase().contains("MARKET") && e.getMessage().toUpperCase().contains("CLOSED")) {
+        if (e.getMessage().toUpperCase().contains("MARKET") && e.getMessage().toUpperCase().contains("CLOSED")) {
           nextDate = nextDate.plusDays(1);
-        }
-        else {
+        } else {
           throw new IllegalArgumentException(e.getMessage());
         }
       }

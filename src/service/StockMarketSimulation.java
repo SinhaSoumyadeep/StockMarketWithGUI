@@ -81,7 +81,7 @@ public class StockMarketSimulation implements IStockMarketSimulation, Serializab
       addCompanyToListing(ticker, listing);
       String tuple = stockForDate(listing, timeStamp);
       String[] dataValue = tuple.split(",");
-      return new Stock(ticker, dataValue[0], dataValue[4], noOfShares,commission);
+      return new Stock(ticker, dataValue[0], dataValue[4], noOfShares, commission);
 
     }
 

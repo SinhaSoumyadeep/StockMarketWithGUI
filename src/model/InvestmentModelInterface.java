@@ -11,12 +11,12 @@ import transferable.PortfolioTransferable;
  *
  * <p>In its simplest form, a stock of a company is simply a part of ownership in that company.
  * Ownership is divided into shares, where a share represents a fraction of the total ownership. For
- * example, Apple has about 5.2B shares. So if you own 100 shares, you own about of the
- * company (and it would be worth about dollar20800 today). As a shareholder, you are an investor in the
- * company. An investor sends money to the company to buy some of its stock, and gets part ownership
- * in return. The total money invested in the stock (money spent buying it) is called the cost basis
- * of the purchase. The value of the stock on a particular day is the money the investor would
- * receive if he/she sold the stock on that day.</p>
+ * example, Apple has about 5.2B shares. So if you own 100 shares, you own about of the company (and
+ * it would be worth about dollar20800 today). As a shareholder, you are an investor in the company.
+ * An investor sends money to the company to buy some of its stock, and gets part ownership in
+ * return. The total money invested in the stock (money spent buying it) is called the cost basis of
+ * the purchase. The value of the stock on a particular day is the money the investor would receive
+ * if he/she sold the stock on that day.</p>
  * <p>
  * Each publicly traded companys stock is given a unique ticker symbol which is used to trade it
  * (for example, Apple Inc. is AAPL, Microsoft is MSFT). The price of stock keeps changing all day
@@ -61,7 +61,7 @@ public interface InvestmentModelInterface {
    * @param timeStamp     the time stamp.
    * @param noOfShares    the number of shares.
    * @param portfolioName the portfolio name.
-   * @param commission the commission fee.
+   * @param commission    the commission fee.
    * @throws IllegalArgumentException if the stock market is closed on holidays.
    * @throws ParseException           if the date comparision fails.
    */

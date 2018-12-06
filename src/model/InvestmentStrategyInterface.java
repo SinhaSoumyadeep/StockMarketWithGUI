@@ -4,8 +4,9 @@ import java.text.ParseException;
 import java.util.HashMap;
 
 /**
- * This interface is a general representation of the various investment strategies that can be executed on a
- * portfolio. This interface provides a method to execute the strategy on the specified portfolios.
+ * This interface is a general representation of the various investment strategies that can be
+ * executed on a portfolio. This interface provides a method to execute the strategy on the
+ * specified portfolios.
  * <p>
  * Many people look to the stock market for investing because of the promise of big gains. But how
  * does one maximize gain The idea is simple buy at a low price, and sell at a high price. The main
@@ -35,7 +36,6 @@ import java.util.HashMap;
  * passive style of investing. While this is a simpler strategy it has the potential of missing
  * stock market fluctuations that could produce more dramatic gains.
  * </p>
- *
  */
 public interface InvestmentStrategyInterface {
   /**

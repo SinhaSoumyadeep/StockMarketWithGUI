@@ -22,8 +22,8 @@ import transferable.PortfolioTransferable;
  * cost basis of the purchase. The value of the stock on a particular day is the money the investor
  * would receive if he/she sold the stock on that day.</p>
  * <p>
- * Each publicly traded companys stock is given a unique ticker symbol which is used to trade it
- * for example, Apple Inc. is AAPL, Microsoft is MSFT The price of stock keeps changing all day
+ * Each publicly traded companys stock is given a unique ticker symbol which is used to trade it for
+ * example, Apple Inc. is AAPL, Microsoft is MSFT The price of stock keeps changing all day
  * depending on how many people want to own that stock versus how many people want to sell their
  * shares. The behavior of a US stock during a day can be understood by its opening price at 8am EST
  * when the New York Stock Exchange opens for business its closing price at 4pm EST when the NYSE
@@ -72,7 +72,7 @@ import transferable.PortfolioTransferable;
  */
 public class InvestmentModelNew extends InvestmentModel implements InvestModelInterfaceNew {
 
- // private HashMap<String, WeightsOfPortfolio> listOfWeights;
+  // private HashMap<String, WeightsOfPortfolio> listOfWeights;
 
 
   /**
@@ -99,29 +99,27 @@ public class InvestmentModelNew extends InvestmentModel implements InvestModelIn
   public void investStocks(String portfolioName, Double fixedAmount, HashMap<String,
           Double> weights, String timeStamp, String commission) throws ParseException {
 
-    if(fixedAmount < 0){
+    if (fixedAmount < 0) {
       throw new IllegalArgumentException("Fixed amount cannot be negative.");
     }
 
-    if(weights.keySet().size() != getStocksInPortfolio(portfolioName).size())
-    {
+    if (weights.keySet().size() != getStocksInPortfolio(portfolioName).size()) {
       throw new IllegalArgumentException("the number of stocks in weights does " +
               "not match with the number of stocks in portfolio");
     }
-    for(String stocks: weights.keySet())
-    {
-      if(!getStocksInPortfolio(portfolioName).contains(stocks)){
+    for (String stocks : weights.keySet()) {
+      if (!getStocksInPortfolio(portfolioName).contains(stocks)) {
         throw new IllegalArgumentException("Stocks entered in weights does " +
                 "not match the stocks in portfolio.");
       }
     }
 
     portfolioName = portfolioName.toUpperCase();
-    if(checkIfPortfolioIsEmpty(portfolioName)){
+    if (checkIfPortfolioIsEmpty(portfolioName)) {
       throw new IllegalArgumentException("Portfolio has no contents.");
     }
-    for(Double value: weights.values()){
-      if(value < 0){
+    for (Double value : weights.values()) {
+      if (value < 0) {
         throw new IllegalArgumentException("Weight cannot be negative.");
       }
     }
@@ -134,7 +132,7 @@ public class InvestmentModelNew extends InvestmentModel implements InvestModelIn
       throw new IllegalArgumentException("Weights should add up to 100.");
     }
     IPortfolio investingPortfolio = this.listOfPortfolio.get(portfolioName);
-   // this.listOfWeights.put(portfolioName, new WeightsOfPortfolio(weights));
+    // this.listOfWeights.put(portfolioName, new WeightsOfPortfolio(weights));
     for (String key : investingPortfolio.getStockNamesInPortfolio()) {
       Double moneyForEachStock = (weights.get(key) / 100) * fixedAmount;
       investStockhelper(moneyForEachStock, key, portfolioName, timeStamp, commission);
@@ -157,11 +155,11 @@ public class InvestmentModelNew extends InvestmentModel implements InvestModelIn
   public void investStocks(String portfolioName, Double fixedAmount, String timeStamp,
                            String commission) throws ParseException {
 
-    if(fixedAmount < 0){
+    if (fixedAmount < 0) {
       throw new IllegalArgumentException("Fixed amount cannot be negative.");
     }
     portfolioName = portfolioName.toUpperCase();
-    if(checkIfPortfolioIsEmpty(portfolioName)){
+    if (checkIfPortfolioIsEmpty(portfolioName)) {
       throw new IllegalArgumentException("Portfolio has no contents.");
     }
 
@@ -192,7 +190,7 @@ public class InvestmentModelNew extends InvestmentModel implements InvestModelIn
 
   }
 
-/*  *//**
+  /*  *//**
    * This method is used to check the weights assigned to a partcular portfolio.
    *
    * @param portfolioName the portfolio name

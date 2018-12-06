@@ -1,15 +1,8 @@
 package controller;
 
-import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import com.fasterxml.jackson.annotation.PropertyAccessor;
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
-import java.io.File;
 import java.io.IOException;
 import java.text.ParseException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 import commands.BuyStocks;
@@ -18,10 +11,6 @@ import commands.EvaluatePortfolio;
 import commands.DollarCostAverageCommand;
 import commands.InvestFixedAmount;
 import model.InvestModelInterfaceNew;
-import model.InvestmentModelNew;
-import properties.PropertiesLoader;
-import test.Address;
-import test.person;
 import utility.Options;
 import view.InvestmentConsoleInterface;
 import view.InvestmentViewInterface;

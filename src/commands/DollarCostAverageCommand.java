@@ -104,7 +104,7 @@ public class DollarCostAverageCommand extends AbstractCommand {
 
     String endDate = "";
 
-    if(choice.equals("1")) {
+    if (choice.equals("1")) {
       iv.viewEnterEndDate();
       endDate = invalidityChecker(s -> {
         if (du.checkDateValidity(s.toString())) {
@@ -114,8 +114,7 @@ public class DollarCostAverageCommand extends AbstractCommand {
         }
 
       });
-    }
-    else if(choice.equals("2")){
+    } else if (choice.equals("2")) {
       endDate = LocalDate.now().toString();
       iv.ongoingEndDate();
     }

@@ -235,7 +235,6 @@ public class InvestmentView implements InvestmentConsoleInterface {
   }
 
 
-
   /**
    * View enter fixed amount message.
    *
