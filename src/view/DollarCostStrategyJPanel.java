@@ -7,6 +7,7 @@ import java.util.List;
 import javax.swing.*;
 
 import controller.Features;
+import validation.Validator;
 
 
 public class DollarCostStrategyJPanel extends JPanel {
@@ -201,7 +202,7 @@ public class DollarCostStrategyJPanel extends JPanel {
       StringBuffer display = new StringBuffer();
       int count = 1;
       for (String stock : f.getStocksInPortfolio(portfolioNameInStrategyJCombo.getSelectedItem().toString())) {
-        display = display.append( count + ". " + stock + "\n");
+        display = display.append(count + ". " + stock + "\n");
         count++;
       }
 
@@ -211,18 +212,29 @@ public class DollarCostStrategyJPanel extends JPanel {
     });
 
     assignIndividualWeightsBtn.addActionListener(l -> {
+
+      Validator v = new Validator();
+      if (v.checkStartDateEndDateValidity(enterStartDateInStrategyJTextField.getText(),
+              enterEndDateInStrategyJTextField1.getText())) {
+        return;
+      } else if (v.checkFixedAmountValidity(enterFixedAmountJTextField.getText())) {
+        return;
+      } else if (v.checkCommissionValidity(enterCommissionInStrategyJTextField.getText())) {
+        return;
+      } else if (v.checkFrequencyValidity(enterFrequencyJTextField1.getText())) {
+        return;
+      }
+
       try {
-        f.implementStrategy(portfolioNameInStrategyJCombo.getSelectedItem().toString(),enterFixedAmountJTextField.getText(),enterStartDateInStrategyJTextField.getText(),enterEndDateInStrategyJTextField1.getText(),enterFrequencyJTextField1.getText(),enterCommissionInStrategyJTextField.getText(),enterWeightsJTextField.getText());
+        f.implementStrategy(portfolioNameInStrategyJCombo.getSelectedItem().toString(), enterFixedAmountJTextField.getText(), enterStartDateInStrategyJTextField.getText(), enterEndDateInStrategyJTextField1.getText(), enterFrequencyJTextField1.getText(), enterCommissionInStrategyJTextField.getText(), enterWeightsJTextField.getText());
         displayMessage("Thank You!", "Thank you for investing: $" + enterFixedAmountJTextField.getText() + " on portfolio: " + portfolioNameInStrategyJCombo.getSelectedItem().toString());
         reset();
-      }
-      catch (NumberFormatException n){
+      } catch (NumberFormatException n) {
         displayMessage("ERROR", "Please enter weights according to the specified format.");
         enterWeightsJTextField.setText("");
-      }
-      catch (Exception e){
+      } catch (Exception e) {
 
-        displayMessage("ERROR",e.getMessage());
+        displayMessage("ERROR", e.getMessage());
       }
 
     });

@@ -8,7 +8,7 @@ import javax.swing.*;
 
 
 import controller.Features;
-
+import validation.Validator;
 
 
 public class InvestFixedAmount extends JPanel {
@@ -189,30 +189,47 @@ public class InvestFixedAmount extends JPanel {
     });
 
     assignEqualWeightsBtn.addActionListener(l -> {
+
+      Validator v = new Validator();
+      if (v.checkDateValidity(enterDateInInvestFixedJTextField.getText())) {
+        return;
+      } else if (v.checkFixedAmountValidity(enterFixedAmountJTextField.getText())) {
+        return;
+      } else if (v.checkCommissionValidity(enterCommissionInInvestFixedJTextField.getText())) {
+        return;
+      }
       try {
         f.investStocks(portfolioNameInInvestFixedJCombo.getSelectedItem().toString(), enterFixedAmountJTextField.getText(), enterDateInInvestFixedJTextField.getText(), enterCommissionInInvestFixedJTextField.getText());
         displayMessage("Thank You!", "Thank you for investing: $" + enterFixedAmountJTextField.getText() + " on portfolio: " + portfolioNameInInvestFixedJCombo.getSelectedItem().toString());
-      }
-      catch (Exception e){
-        displayMessage("ERROR",e.getMessage());
-        displayMessage("ERROR","sorry you have to start again!");
+      } catch (Exception e) {
+        displayMessage("ERROR", e.getMessage());
+        displayMessage("ERROR", "sorry you have to start again!");
       }
       reset();
     });
 
     assignIndividualWeightsBtn.addActionListener(l -> {
+
+      Validator v = new Validator();
+      if (v.checkDateValidity(enterDateInInvestFixedJTextField.getText())) {
+        return;
+      } else if (v.checkFixedAmountValidity(enterFixedAmountJTextField.getText())) {
+        return;
+      } else if (v.checkCommissionValidity(enterCommissionInInvestFixedJTextField.getText())) {
+        return;
+      }
+
+
       try {
-      f.investStocks(portfolioNameInInvestFixedJCombo.getSelectedItem().toString(), enterFixedAmountJTextField.getText(),enterWeightsJTextField.getText(), enterDateInInvestFixedJTextField.getText(), enterCommissionInInvestFixedJTextField.getText());
+        f.investStocks(portfolioNameInInvestFixedJCombo.getSelectedItem().toString(), enterFixedAmountJTextField.getText(), enterWeightsJTextField.getText(), enterDateInInvestFixedJTextField.getText(), enterCommissionInInvestFixedJTextField.getText());
         displayMessage("Thank You!", "Thank you for investing: $" + enterFixedAmountJTextField.getText() + " on portfolio: " + portfolioNameInInvestFixedJCombo.getSelectedItem().toString());
         reset();
-      }
-      catch (NumberFormatException n){
+      } catch (NumberFormatException n) {
         displayMessage("ERROR", "Please enter weights according to the specified format.");
         enterWeightsJTextField.setText("");
-      }
-      catch (Exception e){
+      } catch (Exception e) {
 
-        displayMessage("ERROR",e.getMessage());
+        displayMessage("ERROR", e.getMessage());
       }
 
     });
@@ -230,7 +247,8 @@ public class InvestFixedAmount extends JPanel {
   }
 
   private void displayMessage(String title, String message) {
-    JOptionPane.showMessageDialog(null, message, "InfoBox: " + title, JOptionPane.INFORMATION_MESSAGE);
+    JOptionPane.showMessageDialog(null, message, "InfoBox: " + title,
+            JOptionPane.INFORMATION_MESSAGE);
   }
 
 

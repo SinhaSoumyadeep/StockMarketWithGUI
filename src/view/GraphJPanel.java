@@ -8,6 +8,7 @@ import javax.swing.*;
 
 
 import controller.Features;
+import validation.Validator;
 
 public class GraphJPanel extends JPanel {
 
@@ -113,7 +114,14 @@ public class GraphJPanel extends JPanel {
 
   public void delegateActions(Features f) {
     plotGraphBtn.addActionListener(l -> {
-      f.plotGraph(portfolioNameInPlotGraphJCombo.getSelectedItem().toString(),enterStartDateInPlotGraphJTextField.getText(),enterEndDateInPlotGraphJTextField1.getText(),enterFrequencyInPlotGraphJTextField1.getText());
+      Validator v = new Validator();
+      if (v.checkStartDateEndDateValidity(enterStartDateInPlotGraphJTextField.getText(),
+              enterEndDateInPlotGraphJTextField1.getText())) {
+        return;
+      } else if (v.checkFrequencyValidity(enterFrequencyInPlotGraphJTextField1.getText())) {
+        return;
+      }
+      f.plotGraph(portfolioNameInPlotGraphJCombo.getSelectedItem().toString(), enterStartDateInPlotGraphJTextField.getText(), enterEndDateInPlotGraphJTextField1.getText(), enterFrequencyInPlotGraphJTextField1.getText());
     });
 
   }

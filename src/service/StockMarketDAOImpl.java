@@ -63,8 +63,12 @@ public class StockMarketDAOImpl implements StockMarketDAO {
       throw new IllegalArgumentException("No price data found for " + ticker);
     }
 
+    if (output.toString().contains("\"Error Message\": \"Invalid API call.")) {
+      throw new IllegalArgumentException("Invalid Ticker Entered");
+    }
 
-    if (output.toString().contains("Our standard API call frequency is 5 calls per minute and 500 calls per day")) {
+    if (output.toString().contains("Our standard API call frequency is 5 calls per minute and " +
+            "500 calls per day")) {
       throw new IllegalArgumentException("5 calls per minute and 500 calls per day");
     }
 
