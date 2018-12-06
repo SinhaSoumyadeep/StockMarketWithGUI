@@ -80,7 +80,7 @@ public class Controller extends AbstractController implements Features {
   }
 
   /**
-   * This method takes in a ticker sybol, timestamp, number of shares, commission fee and portfolio
+   * This method takes in a ticker symbol, timestamp, number of shares, commission fee and portfolio
    * name to buy the stock specified by the user.
    *
    * @param ticker         the ticker symbol.

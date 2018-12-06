@@ -20,7 +20,7 @@ public interface Features {
   void createPortfolio(String portfolioName);
 
   /**
-   * This method takes in a ticker sybol, timestamp, number of shares, commission fee and portfolio
+   * This method takes in a ticker symbol, timestamp, number of shares, commission fee and portfolio
    * name to buy the stock specified by the user.
    *
    * @param ticker         the ticker symbol.
@@ -33,7 +33,7 @@ public interface Features {
                  String portfolioName);
 
   /**
-   * This method takes in the portfolio ane and a timestamp and evaluates the stock on that date.
+   * This method takes in the portfolio name and a timestamp and evaluates the stock on that date.
    *
    * @param portfolioName portfolio name.
    * @param timeStamp     timestamp.
