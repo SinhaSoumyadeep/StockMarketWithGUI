@@ -38,10 +38,11 @@ public class Main {
    */
   public static void main(String[] args) throws ParseException, IOException {
 
+    String option = args[0].toUpperCase();
 
     InvestModelInterfaceNew im = new InvestmentModelNew();
-    InvestmentViewInterface iv = ViewFactory.generateViewFactory("GUI");
-    IStockMarketController controller = ControllerFactory.generateControllerFactory("GUI",iv,im);
+    InvestmentViewInterface iv = ViewFactory.generateViewFactory(option);
+    IStockMarketController controller = ControllerFactory.generateControllerFactory(option,iv,im);
     try {
       controller.startStockMarket();
     } catch (ParseException e) {
